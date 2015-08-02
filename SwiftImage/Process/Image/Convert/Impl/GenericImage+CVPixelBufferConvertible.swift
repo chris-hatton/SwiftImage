@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CoreVideo
 
 extension GenericImage : CVPixelBufferConvertible
 {

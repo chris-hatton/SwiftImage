@@ -8,7 +8,11 @@
 
 import Foundation
 
-func regionRasterSource<PixelType:Pixel>( region: ImageRegion, nextPixel: ()->PixelType, nextLine: ()->Void, end: (()->Void)? = nil) -> ()->PixelType?
+func regionRasterSource<PixelType:Pixel>(
+        region:    ImageRegion,
+        nextPixel: ()->PixelType,
+        nextLine:  ()->Void,
+        end:       (()->Void)? = nil) -> ()->PixelType?
 {
     var
         x : UInt = region.x,

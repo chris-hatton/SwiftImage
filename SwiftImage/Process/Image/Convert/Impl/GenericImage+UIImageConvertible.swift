@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreVideo
 
 extension GenericImage : UIImageConvertible
 {
