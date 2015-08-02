@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol GenericImageConvertible
+ protocol GenericImageConvertible
 {
     typealias PixelType : Pixel
 

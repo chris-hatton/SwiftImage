@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CVPixelBufferConvertible
+public protocol CVPixelBufferConvertible
 {
     func toCVPixelBuffer() -> CVPixelBuffer
 }

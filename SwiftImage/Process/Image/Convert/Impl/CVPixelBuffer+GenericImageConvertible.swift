@@ -7,7 +7,7 @@ import Foundation
 
 extension CVPixelBuffer : GenericImageConvertible
 {
-    func toGenericImage() -> GenericImage<PixelType>
+    public func toGenericImage() -> GenericImage<PixelType>
     {
         preconditionFailure()
     }

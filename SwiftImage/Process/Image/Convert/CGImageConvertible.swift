@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CGImageConvertible
+public protocol CGImageConvertible
 {
     func toCGImage() -> CGImage
 }

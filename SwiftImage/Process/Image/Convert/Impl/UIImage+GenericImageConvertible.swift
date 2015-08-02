@@ -1,12 +1,15 @@
 //
-// Created by Christopher Hatton on 22/07/15.
-// Copyright (c) 2015 Chris Hatton. All rights reserved.
+//  UIImage+GenericImageConvertible.swift
+//  SwiftImage
+//
+//  Created by Christopher Hatton on 02/08/2015.
+//  Copyright © 2015 Chris Hatton. All rights reserved.
 //
 
 import Foundation
 import CoreGraphics
 
-extension CGImage : GenericImageConvertible
+extension UIImage : GenericImageConvertible
 {
     public func toGenericImage() -> GenericImage<PixelType>
     {

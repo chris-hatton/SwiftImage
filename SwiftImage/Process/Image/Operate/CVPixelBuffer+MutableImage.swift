@@ -13,10 +13,10 @@ import Accelerate
 
 extension CVPixelBuffer : MutableImage
 {
-    typealias PixelType   = RGBPixel
-    typealias PixelSource = ()->PixelType?
+    public typealias PixelType   = RGBPixel
+    public typealias PixelSource = ()->PixelType?
     
-    func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( region: ImageRegion ) -> PixelSource
     {
         assert( CVPixelBufferGetPixelFormatType( self ) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
         
@@ -55,7 +55,7 @@ extension CVPixelBuffer : MutableImage
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine, end: end )
     }
     
-    func writeRegion( region: ImageRegion, pixelSource: PixelSource )
+    public func writeRegion( region: ImageRegion, pixelSource: PixelSource )
     {
         assert( CVPixelBufferGetPixelFormatType(self) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
         
@@ -97,12 +97,12 @@ extension CVPixelBuffer : MutableImage
         CVPixelBufferUnlockBaseAddress( self,0 )
     }
     
-    var width : UInt
+    public var width : UInt
     {
         get { return UInt( CVPixelBufferGetWidth( self ) ) }
     }
     
-    var height : UInt
+    public var height : UInt
     {
         get { return UInt( CVPixelBufferGetHeight( self ) ) }
     }

@@ -5,10 +5,10 @@
 
 import Foundation
 
-protocol ImmutableImage
+public protocol ImmutableImage
 {
     typealias PixelType : Pixel
-    typealias PixelSource = () -> PixelType?
+    typealias PixelSource = (() -> PixelType?)
     
     func readRegion( region: ImageRegion ) -> PixelSource
 
@@ -16,7 +16,7 @@ protocol ImmutableImage
     var height : UInt { get }
 }
 
-extension ImmutableImage
+public extension ImmutableImage
 {
     func getPixel( x: UInt, y: UInt ) -> PixelType?
     {
@@ -24,7 +24,9 @@ extension ImmutableImage
         
         let singlePixelSource : PixelSource = readRegion( singlePixelRegion )
         
-        return nil
+        let pixel : PixelType? = (singlePixelSource as! ()->PixelType?)()
+        
+        return pixel
     }
 }
 

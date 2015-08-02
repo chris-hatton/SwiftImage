@@ -8,21 +8,21 @@
 
 import Foundation
 
-class GenericImage<TP : Pixel> : MutableImage
+public class GenericImage<TP : Pixel> : MutableImage
 {
-    typealias PixelType = TP
-    typealias ImageType = GenericImage
-    typealias PixelSource = ()->TP?
+    public typealias PixelType = TP
+    public typealias ImageType = GenericImage
+    public typealias PixelSource = ()->TP?
     
     var pixels : [PixelType]
     
-    var
+    public var
         width  : UInt,
         height : UInt
     
     // TODO: Create another constructor which uses a PixelSource for the initial fill
     
-    init(width: UInt, height: UInt, fill: PixelType)
+    public init(width: UInt, height: UInt, fill: PixelType)
     {
         pixels = [PixelType](count: Int( width * height ), repeatedValue: fill)
         
@@ -30,7 +30,7 @@ class GenericImage<TP : Pixel> : MutableImage
         self.height = height
     }
     
-    func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( region: ImageRegion ) -> PixelSource
     {
         var i : Int = Int( ( region.y * self.width ) + region.x )
         
@@ -43,7 +43,7 @@ class GenericImage<TP : Pixel> : MutableImage
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine )
     }
 
-    func writeRegion( region: ImageRegion, pixelSource: PixelSource )
+    public func writeRegion( region: ImageRegion, pixelSource: PixelSource )
     {
         for y : UInt in region.y ..< region.height
         {

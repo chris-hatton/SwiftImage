@@ -8,10 +8,10 @@ import CoreImage
 
 extension CIImage : ImmutableImage
 {
-    typealias PixelType   = RGBPixel
-    typealias PixelSource = ()->PixelType?
+    public typealias PixelType   = RGBPixel
+    public typealias PixelSource = ()->PixelType?
     
-    func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( region: ImageRegion ) -> PixelSource
     {
         let pixelSource : PixelSource =
         {
@@ -21,12 +21,12 @@ extension CIImage : ImmutableImage
         return pixelSource
     }
     
-    var width : UInt
+    public var width : UInt
     {
         get { return UInt( self.extent.width ) }
     }
     
-    var height : UInt
+    public var height : UInt
     {
         get { return UInt( self.extent.height ) }
     }

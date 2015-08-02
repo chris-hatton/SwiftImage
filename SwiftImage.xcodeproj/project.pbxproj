@@ -27,6 +27,8 @@
 		832788A31B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A21B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift */; };
 		832788A51B5FBC2F00F0BAA0 /* CGImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A41B5FBC2F00F0BAA0 /* CGImageConvertible.swift */; };
 		832788A71B5FBCAE00F0BAA0 /* CIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A61B5FBCAE00F0BAA0 /* CIImageConvertible.swift */; };
+		8362246A1B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */; };
+		8362246C1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */; };
 		836CDE201B6792A40079EEDD /* RegionRasterSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */; };
 		83C4902F1B5E6BAB00C54BE7 /* SwiftImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 83C4902E1B5E6BAB00C54BE7 /* SwiftImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83C490351B5E6BAC00C54BE7 /* SwiftImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C490291B5E6BAB00C54BE7 /* SwiftImage.framework */; };
@@ -65,6 +67,8 @@
 		832788A21B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVPixelBufferConvertible.swift; sourceTree = "<group>"; };
 		832788A41B5FBC2F00F0BAA0 /* CGImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageConvertible.swift; sourceTree = "<group>"; };
 		832788A61B5FBCAE00F0BAA0 /* CIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageConvertible.swift; sourceTree = "<group>"; };
+		836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GenericImageConvertible.swift"; sourceTree = "<group>"; };
+		8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericImage+UIImageConvertible.swift"; sourceTree = "<group>"; };
 		836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRasterSource.swift; sourceTree = "<group>"; };
 		83C490291B5E6BAB00C54BE7 /* SwiftImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C4902D1B5E6BAB00C54BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				3E12686464533B56CE69C716 /* GenericImage+CVPixelBufferConvertible.swift */,
 				3E126D1C48B15B9CF3F75F6D /* CGImage+GenericImageConvertible.swift */,
 				3E126657E65A22DA5ADF5248 /* GenericImage+CGImageConvertible.swift */,
+				836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */,
+				8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 				3E126279C8DED5366B5F7D38 /* UIImage+ImmutableImage.swift in Sources */,
 				3E1264501E639BE798B547CF /* ImageConversion.swift in Sources */,
 				3E126F3D768D0522E7DB1864 /* MutableImage.swift in Sources */,
+				8362246C1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift in Sources */,
 				832788A71B5FBCAE00F0BAA0 /* CIImageConvertible.swift in Sources */,
 				3E1260F69FE27BE58F506936 /* ImmutableImage.swift in Sources */,
 				3E126253AF513DC91A68838C /* GenericImage.swift in Sources */,
@@ -359,6 +366,7 @@
 				83E5255B1B6283430057A7EB /* ImageRegion.swift in Sources */,
 				3E12627D3D9A0AA4944AC976 /* CVPixelBuffer+GenericImageConvertible.swift in Sources */,
 				3E12635DAD6FF11D0D67AFD1 /* GenericImage+CVPixelBufferConvertible.swift in Sources */,
+				8362246A1B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift in Sources */,
 				3E12681196366981AC1B6818 /* CGImage+GenericImageConvertible.swift in Sources */,
 				3E12677E39AE1DE415F182BC /* GenericImage+CGImageConvertible.swift in Sources */,
 				836CDE201B6792A40079EEDD /* RegionRasterSource.swift in Sources */,
@@ -503,6 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chrisHatton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};

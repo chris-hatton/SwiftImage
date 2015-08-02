@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol UIImageConvertible
+public protocol UIImageConvertible
 {
     func toUIImage() -> UIImage
 }

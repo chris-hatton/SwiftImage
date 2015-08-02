@@ -5,10 +5,9 @@
 
 import Foundation
 
-protocol MutableImage : ImmutableImage
+public protocol MutableImage : ImmutableImage
 {
     typealias PixelType : Pixel
-    typealias PixelSource = ()->PixelType?
     
     func writeRegion( region: ImageRegion, pixelSource: PixelSource)
 }

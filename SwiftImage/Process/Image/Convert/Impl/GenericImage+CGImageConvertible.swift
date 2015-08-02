@@ -8,17 +8,8 @@ import CoreGraphics
 
 extension GenericImage : CGImageConvertible
 {
-    func toCGImage() -> CGImage
+    public func toCGImage() -> CGImage
     {
-        var callbacks : CGDataProviderDirectCallbacks = CGDataProviderDirectCallbacks()
-        
-        func getBytes(pointer: UnsafeMutablePointer<Void>) -> UnsafePointer<Void>
-        {
-            return UnsafePointer<Void>()
-        }
-        
-        let getBytePointerCallback : CGDataProviderGetBytePointerCallback? = getBytes
-        
         let
             width            : Int = 10,
             height           : Int = 10,
@@ -27,37 +18,72 @@ extension GenericImage : CGImageConvertible
             bitsPerPixel     : Int = (bytesPerPixel * 8),
             bytesPerRow      : Int = (bytesPerPixel * width)
         
-        let colorSpace : CGColorSpace           = CGColorSpaceCreateDeviceRGB()!
-        let bitmapInfo : CGBitmapInfo           = CGBitmapInfo.AlphaInfoMask
-        let decode     : UnsafePointer<CGFloat> = UnsafePointer<CGFloat>()
-        let intent     : CGColorRenderingIntent = CGColorRenderingIntent.RenderingIntentDefault
+        var cgDataProviderDirectCallbacks : CGDataProviderDirectCallbacks
         
-        let info : UnsafeMutablePointer<Void> = UnsafeMutablePointer<Void>()
-        let size : off_t = off_t( bytesPerRow * height )
-        let callbacksPointer : UnsafePointer<CGDataProviderDirectCallbacks> = UnsafePointer<CGDataProviderDirectCallbacks>()
-        //callbacksPointercallbacksPointer.memory = callbacks
+        do // Set up direct data-provider callbacks
+        {
+            let zero: UInt32 = UInt32(0)
+            
+            let releaseBytePointer : CGDataProviderReleaseBytePointerCallback? = nil
+            let getBytePointer     : CGDataProviderGetBytePointerCallback? =
+            {
+                (in1) -> UnsafePointer<Void> in
+                
+                let dataPtr = UnsafePointer<Void>(in1)
+                
+                return dataPtr
+            }
+            
+            let getBytesAtPosition : CGDataProviderGetBytesAtPositionCallback? = nil
+            let releaseInfo        : CGDataProviderReleaseInfoCallback?        = nil
+            
+            cgDataProviderDirectCallbacks = CGDataProviderDirectCallbacks(
+                version:            zero, // UInt32
+                getBytePointer:     getBytePointer,
+                releaseBytePointer: releaseBytePointer,
+                getBytesAtPosition: getBytesAtPosition,
+                releaseInfo:        releaseInfo
+            )
+        }
         
-        let dataProvider : CGDataProvider = CGDataProviderCreateDirect(
-            info,
-            size,
-            callbacksPointer
-        )!
+        let dataProvider : CGDataProvider
         
-        let shouldInterpolate : Bool = false
+        do // Set up direct data-provider
+        {
+            let size : off_t = off_t( bytesPerRow * height )
+            
+            dataProvider = CGDataProviderCreateDirect(
+                &pixels,
+                size,
+                &cgDataProviderDirectCallbacks
+                )!
+        }
         
-        let cgImage : CGImage = CGImageCreate(
-            width,
-            height,
-            bitsPerComponent,
-            bitsPerPixel,
-            bytesPerRow,
-            colorSpace,
-            bitmapInfo,
-            dataProvider,
-            decode,
-            shouldInterpolate,
-            intent
-        )!
+        let cgImage : CGImage
+        
+        do // Create image
+        {
+            let
+                colorSpace        : CGColorSpace           = CGColorSpaceCreateDeviceRGB()!,
+                bitmapInfo        : CGBitmapInfo           = CGBitmapInfo.AlphaInfoMask,
+                decode            : UnsafePointer<CGFloat> = UnsafePointer<CGFloat>(),
+                intent            : CGColorRenderingIntent = CGColorRenderingIntent.RenderingIntentDefault,
+                shouldInterpolate : Bool                   = false
+            
+            cgImage = CGImageCreate(
+                width,
+                height,
+                bitsPerComponent,
+                bitsPerPixel,
+                bytesPerRow,
+                colorSpace,
+                bitmapInfo,
+                dataProvider,
+                decode,
+                shouldInterpolate,
+                intent
+            )!
+        }
         
         return cgImage
     }

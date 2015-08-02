@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CIImageConvertible
+public protocol CIImageConvertible
 {
     func toCIImage() -> CIImage
 }

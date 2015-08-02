@@ -11,11 +11,10 @@ import CoreGraphics
 
 extension CGImage : ImmutableImage
 {
-    typealias PixelType = RGBPixel
+    public typealias PixelType = RGBPixel
+    public typealias PixelSource = () -> PixelType?
     
-    typealias PixelSource = () -> PixelType?
-    
-    func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( region: ImageRegion ) -> PixelSource
     {
         let
             bytesPerRow      : Int = CGImageGetBytesPerRow      ( self ),
@@ -48,12 +47,12 @@ extension CGImage : ImmutableImage
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine )
     }
     
-    var width : UInt
+    public var width : UInt
     {
         get { return UInt( CGImageGetWidth( self ) ) }
     }
     
-    var height : UInt
+    public var height : UInt
     {
         get { return UInt( CGImageGetHeight( self ) ) }
     }

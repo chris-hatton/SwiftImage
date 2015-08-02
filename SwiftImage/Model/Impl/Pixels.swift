@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-protocol Pixel {}
+public protocol Pixel {}
 
-struct HSVPixel : Pixel
+public struct HSVPixel : Pixel
 {
     var
         hue        : Double,
@@ -26,7 +26,7 @@ struct HSVPixel : Pixel
     }
 }
 
-struct RGBPixel : Pixel
+public struct RGBPixel : Pixel
 {
     var
         red   : Double,

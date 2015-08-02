@@ -8,21 +8,28 @@ import CoreGraphics
 
 extension UIImage : ImmutableImage
 {
-    typealias PixelType   = RGBPixel
-    typealias PixelSource = ()->PixelType?
+    public typealias PixelType   = RGBPixel
+    public typealias PixelSource = ()->PixelType?
     
-    func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( region: ImageRegion ) -> PixelSource
     {
-        let pixelPtr = UnsafeMutablePointer<UInt8>()
-        
         let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        let
+            width            : Int = Int( region.width ),
+            height           : Int = Int ( region.height ),
+            bitsPerComponent : Int = 8,
+            bytesPerPixel    : Int = 4,
+            bytesPerRow      : Int = (bytesPerPixel * width)
+        
+        let pixelPtr : UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.alloc( bytesPerRow * height )
         
         let context : CGContext = CGBitmapContextCreate(
             pixelPtr,
-            Int( region.width  ), // Width
-            Int( region.height ), // Height
-            8,  // Bits per component
-            3,  // Bytes per row
+            width,
+            height,
+            bitsPerComponent,
+            bytesPerRow,
             rgbColorSpace,
             CGImageAlphaInfo.NoneSkipLast.rawValue
         )!
@@ -50,6 +57,8 @@ extension UIImage : ImmutableImage
                 let b : Double = Double( pixelPtr.memory / 255 )
                 pixelPtr.advancedBy(1)
                 
+                pixelPtr.advancedBy(1) // Discard Alpha
+                
                 pixel = RGBPixel(r,g,b)
             }
             else
@@ -65,13 +74,13 @@ extension UIImage : ImmutableImage
         return pixelSource
     }
 
-    var width : UInt
+    public var width : UInt
     {
-        get { return self.width }
+        get { return UInt( self.size.width ) }
     }
     
-    var height : UInt
+    public var height : UInt
     {
-        get { return self.height }
+        get { return UInt( self.size.height ) }
     }
 }

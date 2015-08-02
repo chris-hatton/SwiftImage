@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct ImageRegion
+public struct ImageRegion
 {
-    let
+    public let
         x     : UInt,
         y     : UInt,
         width : UInt,
