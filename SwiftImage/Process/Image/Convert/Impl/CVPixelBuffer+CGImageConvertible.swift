@@ -9,13 +9,13 @@ import CoreVideo
 
 extension CVPixelBuffer : CGImageConvertible
 {
-    func toCGImage()
+    public func toCGImage() -> CGImage
     {
-        let ciImage: CIImage = CIImage(CVPixelBuffer: buffer)
+        let ciImage: CIImage = CIImage( CVPixelBuffer: self )
 
         let temporaryContext : CIContext = CIContext()
 
-        let rect : CGRect = CGRectMake( 0, 0, CGFloat( CVPixelBufferGetWidth( buffer ) ), CGFloat( CVPixelBufferGetHeight( buffer ) ) )
+        let rect : CGRect = CGRectMake( 0, 0, CGFloat( self.width ), CGFloat( self.height ) )
 
         let cgImage : CGImage = temporaryContext.createCGImage( ciImage, fromRect: rect )
 

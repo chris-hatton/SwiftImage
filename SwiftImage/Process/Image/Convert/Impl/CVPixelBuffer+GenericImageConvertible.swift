@@ -9,6 +9,6 @@ extension CVPixelBuffer : GenericImageConvertible
 {
     public func toGenericImage() -> GenericImage<PixelType>
     {
-        preconditionFailure()
+        preconditionFailure("Not implemented yet")
     }
 }

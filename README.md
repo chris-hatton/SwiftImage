@@ -1,8 +1,8 @@
 # SwiftImage
-An image manipulation and conversion library for Cocoa Touch, in Swift
+An image manipulation and conversion library for (Cocoa Touch)[https://en.wikipedia.org/wiki/Cocoa_Touch], in Swift
 
 **SwiftImage** is a work-in-progress library for manipulating and converting between the numerous image representations that exist
-in Cocoa Touch and it's associated frameworks.  These are:
+in (Cocoa Touch)[https://en.wikipedia.org/wiki/Cocoa_Touch] and it's associated frameworks.  These are:
 
 - **UIImage** 		(UIKit)
 - **CGImage** 		(CoreGraphics)

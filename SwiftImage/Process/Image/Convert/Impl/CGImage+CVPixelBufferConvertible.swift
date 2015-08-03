@@ -8,9 +8,13 @@ import CoreVideo
 
 extension CGImage : CVPixelBufferConvertible
 {
-    func toCVPixelBuffer() -> CVPixelBuffer
+    public func toCVPixelBuffer() -> CVPixelBuffer
     {
-        let frameSize : CGSize = CGSize( width: CGImageGetWidth(image), height: CGImageGetHeight(image) )
+        let
+            width  : Int = Int( self.width  ),
+            height : Int = Int( self.height )
+
+        let frameSize : CGSize = CGSize( width: width, height: height )
 
         let options : [ String : Bool ] = [
             kCVPixelBufferCGImageCompatibilityKey         as String : false,
@@ -48,17 +52,17 @@ extension CGImage : CVPixelBufferConvertible
                 UInt32(0) //TODO: Replace with kCGImageAlphaNoneSkipLast
             )!
 
-            let rect : CGRect = CGRectMake(0, 0, CGFloat( CGImageGetWidth(image) ), CGFloat( CGImageGetHeight(image) ) )
+            let rect : CGRect = CGRectMake(0, 0, CGFloat( width ), CGFloat( height ) )
 
             CGContextDrawImage(
                 context,
                 rect,
-                image
+                self
             )
 
             CVPixelBufferUnlockBaseAddress( buffer!, 0 )
         }
 
-        return buffer
+        return buffer!
     }
 }
