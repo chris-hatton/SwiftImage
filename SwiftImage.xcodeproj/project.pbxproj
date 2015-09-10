@@ -28,6 +28,7 @@
 		832788A31B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A21B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift */; };
 		832788A51B5FBC2F00F0BAA0 /* CGImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A41B5FBC2F00F0BAA0 /* CGImageConvertible.swift */; };
 		832788A71B5FBCAE00F0BAA0 /* CIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A61B5FBCAE00F0BAA0 /* CIImageConvertible.swift */; };
+		83530BC81B9ED68600620E5D /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83530BC71B9ED68600620E5D /* Convert.swift */; settings = {ASSET_TAGS = (); }; };
 		8362246A1B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */; };
 		8362246C1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */; };
 		836CDE201B6792A40079EEDD /* RegionRasterSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */; };
@@ -69,6 +70,7 @@
 		832788A21B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVPixelBufferConvertible.swift; sourceTree = "<group>"; };
 		832788A41B5FBC2F00F0BAA0 /* CGImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageConvertible.swift; sourceTree = "<group>"; };
 		832788A61B5FBCAE00F0BAA0 /* CIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageConvertible.swift; sourceTree = "<group>"; };
+		83530BC71B9ED68600620E5D /* Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
 		836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GenericImageConvertible.swift"; sourceTree = "<group>"; };
 		8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericImage+UIImageConvertible.swift"; sourceTree = "<group>"; };
 		836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRasterSource.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */,
 				3E126378DB07DF19D79E0377 /* CGImage+CVPixelBufferConvertible.swift */,
 				3E126116B63792A8A83D307A /* CVPixelBuffer+CGImageConvertible.swift */,
+				83530BC71B9ED68600620E5D /* Convert.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				3E12607F0E56B44354A6A053 /* CVPixelBuffer+MutableImage.swift in Sources */,
 				3E1266FC407F63623844EDD8 /* CIImage+ImmutableImage.swift in Sources */,
 				3E126EE4798F55C890CC3FCD /* UIImage+ImmutableImage.swift in Sources */,
+				83530BC81B9ED68600620E5D /* Convert.swift in Sources */,
 				3E1265E367D9EAF8357645F4 /* CGImage+CVPixelBufferConvertible.swift in Sources */,
 				3E126323898B4CFDF665A20C /* CVPixelBuffer+CGImageConvertible.swift in Sources */,
 			);

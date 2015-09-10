@@ -10,6 +10,11 @@ extension GenericImage : CGImageConvertible
 {
     public func toCGImage() -> CGImage
     {
+        let cgImage : CGImage = convert(self)
+        
+        return cgImage
+        
+        /*
         let
             width            : Int = 10,
             height           : Int = 10,
@@ -86,5 +91,6 @@ extension GenericImage : CGImageConvertible
         }
         
         return cgImage
+*/
     }
 }
