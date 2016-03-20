@@ -22,6 +22,11 @@ private class GenericToCGImageConverter
 {
     func convert<T>(genericImage: GenericImage<T>) -> CGImage
     {
+        let cgImage : CGImage = convert(self)
+        
+        return cgImage
+        
+        /*
         let
             width            : Int = 10,
             height           : Int = 10,
@@ -95,5 +100,6 @@ private class GenericToCGImageConverter
         }
         
         return cgImage
+*/
     }
 }
