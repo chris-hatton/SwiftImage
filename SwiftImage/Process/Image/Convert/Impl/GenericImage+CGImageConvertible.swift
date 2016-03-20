@@ -3,12 +3,24 @@
 // Copyright (c) 2015 Chris Hatton. All rights reserved.
 //
 
+// Swift cannot compile this yet, the Swift compiler crashes.
+// Bug files on Apple's Radar.
+// Until fixed we use an Objective-C implementation.
+
 import Foundation
 import CoreGraphics
 
 extension GenericImage : CGImageConvertible
 {
     public func toCGImage() -> CGImage
+    {
+        return GenericToCGImageConverter().convert( self )
+    }
+}
+
+private class GenericToCGImageConverter
+{
+    func convert<T>(genericImage: GenericImage<T>) -> CGImage
     {
         let
             width            : Int = 10,
@@ -17,28 +29,25 @@ extension GenericImage : CGImageConvertible
             bytesPerPixel    : Int = 4,
             bitsPerPixel     : Int = (bytesPerPixel * 8),
             bytesPerRow      : Int = (bytesPerPixel * width)
-        
+            
         var cgDataProviderDirectCallbacks : CGDataProviderDirectCallbacks
+        
+        func getByte(info: UnsafeMutablePointer<Void>) -> UnsafePointer<Void>
+        {
+            return UnsafePointer<Void>(info)
+        }
         
         do // Set up direct data-provider callbacks
         {
-            let zero: UInt32 = UInt32(0)
+            let version : UInt32 = UInt32(0)
             
             let releaseBytePointer : CGDataProviderReleaseBytePointerCallback? = nil
-            let getBytePointer     : CGDataProviderGetBytePointerCallback? =
-            {
-                (in1) -> UnsafePointer<Void> in
-                
-                let dataPtr = UnsafePointer<Void>(in1)
-                
-                return dataPtr
-            }
-            
             let getBytesAtPosition : CGDataProviderGetBytesAtPositionCallback? = nil
             let releaseInfo        : CGDataProviderReleaseInfoCallback?        = nil
+            let getBytePointer     : CGDataProviderGetBytePointerCallback?     = getByte
             
             cgDataProviderDirectCallbacks = CGDataProviderDirectCallbacks(
-                version:            zero, // UInt32
+                version:            version,
                 getBytePointer:     getBytePointer,
                 releaseBytePointer: releaseBytePointer,
                 getBytesAtPosition: getBytesAtPosition,
@@ -53,7 +62,7 @@ extension GenericImage : CGImageConvertible
             let size : off_t = off_t( bytesPerRow * height )
             
             dataProvider = CGDataProviderCreateDirect(
-                &pixels,
+                &genericImage.pixels,
                 size,
                 &cgDataProviderDirectCallbacks
                 )!
@@ -64,11 +73,11 @@ extension GenericImage : CGImageConvertible
         do // Create image
         {
             let
-                colorSpace        : CGColorSpace           = CGColorSpaceCreateDeviceRGB()!,
-                bitmapInfo        : CGBitmapInfo           = CGBitmapInfo.AlphaInfoMask,
-                decode            : UnsafePointer<CGFloat> = UnsafePointer<CGFloat>(),
-                intent            : CGColorRenderingIntent = CGColorRenderingIntent.RenderingIntentDefault,
-                shouldInterpolate : Bool                   = false
+            colorSpace        : CGColorSpace           = CGColorSpaceCreateDeviceRGB()!,
+            bitmapInfo        : CGBitmapInfo           = CGBitmapInfo.AlphaInfoMask,
+            decode            : UnsafePointer<CGFloat> = UnsafePointer<CGFloat>(),
+            intent            : CGColorRenderingIntent = CGColorRenderingIntent.RenderingIntentDefault,
+            shouldInterpolate : Bool                   = false
             
             cgImage = CGImageCreate(
                 width,
@@ -82,7 +91,7 @@ extension GenericImage : CGImageConvertible
                 decode,
                 shouldInterpolate,
                 intent
-            )!
+                )!
         }
         
         return cgImage

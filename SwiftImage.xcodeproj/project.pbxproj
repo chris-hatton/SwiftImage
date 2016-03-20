@@ -16,11 +16,13 @@
 		3E12635DAD6FF11D0D67AFD1 /* GenericImage+CVPixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12686464533B56CE69C716 /* GenericImage+CVPixelBufferConvertible.swift */; };
 		3E1264DC7FB1EE4F1A0874A8 /* UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1266AF9F5F59C535C02F27 /* UIImageConvertible.swift */; };
 		3E1265E367D9EAF8357645F4 /* CGImage+CVPixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126378DB07DF19D79E0377 /* CGImage+CVPixelBufferConvertible.swift */; };
+		3E1266332337D23A2A123917 /* GenericImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E126C5730317C7921A7F62B /* GenericImage.h */; };
 		3E1266AE4B620F06BCC45074 /* PixelColorConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12675E5B7C1C9C84FBCAA8 /* PixelColorConversion.swift */; };
 		3E1266FC407F63623844EDD8 /* CIImage+ImmutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1266C6A1CE5A0E46FE7EBE /* CIImage+ImmutableImage.swift */; };
 		3E12677E39AE1DE415F182BC /* GenericImage+CGImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126657E65A22DA5ADF5248 /* GenericImage+CGImageConvertible.swift */; };
 		3E12679DE46C3B7E37E89B70 /* Pixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126C6FB76BE851BDC1A367 /* Pixels.swift */; };
 		3E12681196366981AC1B6818 /* CGImage+GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126D1C48B15B9CF3F75F6D /* CGImage+GenericImageConvertible.swift */; };
+		3E126B5C5AE096F498B7258E /* GenericImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1262C5E870ECC0368A8982 /* GenericImage.m */; };
 		3E126C31891A24F0A505E394 /* CGImage+ImmutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1261364C7852B928274854 /* CGImage+ImmutableImage.swift */; };
 		3E126D95DE57B3464C00899B /* GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126FF970C12A67E2CEB7AE /* GenericImageConvertible.swift */; };
 		3E126EE4798F55C890CC3FCD /* UIImage+ImmutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126CAD4E59E20D48AAF782 /* UIImage+ImmutableImage.swift */; };
@@ -31,6 +33,8 @@
 		8362246A1B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */; };
 		8362246C1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */; };
 		836CDE201B6792A40079EEDD /* RegionRasterSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */; };
+		83A6E1E81B80C87300D41898 /* GenericImage+CGImageConvertible.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A6E1E61B80C87300D41898 /* GenericImage+CGImageConvertible.h */; };
+		83A6E1E91B80C87300D41898 /* GenericImage+CGImageConvertible.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A6E1E71B80C87300D41898 /* GenericImage+CGImageConvertible.m */; };
 		83C4902F1B5E6BAB00C54BE7 /* SwiftImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 83C4902E1B5E6BAB00C54BE7 /* SwiftImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83C490351B5E6BAC00C54BE7 /* SwiftImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C490291B5E6BAB00C54BE7 /* SwiftImage.framework */; };
 		83C4903C1B5E6BAC00C54BE7 /* SwiftImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4903B1B5E6BAC00C54BE7 /* SwiftImageTests.swift */; };
@@ -50,6 +54,7 @@
 /* Begin PBXFileReference section */
 		3E126116B63792A8A83D307A /* CVPixelBuffer+CGImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+CGImageConvertible.swift"; sourceTree = "<group>"; };
 		3E1261364C7852B928274854 /* CGImage+ImmutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+ImmutableImage.swift"; sourceTree = "<group>"; };
+		3E1262C5E870ECC0368A8982 /* GenericImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericImage.m; sourceTree = "<group>"; };
 		3E126378DB07DF19D79E0377 /* CGImage+CVPixelBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+CVPixelBufferConvertible.swift"; sourceTree = "<group>"; };
 		3E126657E65A22DA5ADF5248 /* GenericImage+CGImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericImage+CGImageConvertible.swift"; sourceTree = "<group>"; };
 		3E1266AF9F5F59C535C02F27 /* UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageConvertible.swift; sourceTree = "<group>"; };
@@ -60,6 +65,7 @@
 		3E126AC498DB8E5A8E3ED8E7 /* GenericImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericImage.swift; sourceTree = "<group>"; };
 		3E126BEDD3BA65EC1856BAF5 /* CVPixelBuffer+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+GenericImageConvertible.swift"; sourceTree = "<group>"; };
 		3E126C44172C83B2C0DA8C0E /* MutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableImage.swift; sourceTree = "<group>"; };
+		3E126C5730317C7921A7F62B /* GenericImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericImage.h; sourceTree = "<group>"; };
 		3E126C6FB76BE851BDC1A367 /* Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixels.swift; sourceTree = "<group>"; };
 		3E126CAD4E59E20D48AAF782 /* UIImage+ImmutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImmutableImage.swift"; sourceTree = "<group>"; };
 		3E126D1C48B15B9CF3F75F6D /* CGImage+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+GenericImageConvertible.swift"; sourceTree = "<group>"; };
@@ -72,6 +78,8 @@
 		836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GenericImageConvertible.swift"; sourceTree = "<group>"; };
 		8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericImage+UIImageConvertible.swift"; sourceTree = "<group>"; };
 		836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRasterSource.swift; sourceTree = "<group>"; };
+		83A6E1E61B80C87300D41898 /* GenericImage+CGImageConvertible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GenericImage+CGImageConvertible.h"; sourceTree = "<group>"; };
+		83A6E1E71B80C87300D41898 /* GenericImage+CGImageConvertible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GenericImage+CGImageConvertible.m"; sourceTree = "<group>"; };
 		83C490291B5E6BAB00C54BE7 /* SwiftImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C4902D1B5E6BAB00C54BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83C4902E1B5E6BAB00C54BE7 /* SwiftImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftImage.h; sourceTree = "<group>"; };
@@ -153,6 +161,8 @@
 				8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */,
 				3E126378DB07DF19D79E0377 /* CGImage+CVPixelBufferConvertible.swift */,
 				3E126116B63792A8A83D307A /* CVPixelBuffer+CGImageConvertible.swift */,
+				83A6E1E61B80C87300D41898 /* GenericImage+CGImageConvertible.h */,
+				83A6E1E71B80C87300D41898 /* GenericImage+CGImageConvertible.m */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -183,6 +193,8 @@
 			children = (
 				3E126AC498DB8E5A8E3ED8E7 /* GenericImage.swift */,
 				3E126C6FB76BE851BDC1A367 /* Pixels.swift */,
+				3E1262C5E870ECC0368A8982 /* GenericImage.m */,
+				3E126C5730317C7921A7F62B /* GenericImage.h */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -248,7 +260,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A6E1E81B80C87300D41898 /* GenericImage+CGImageConvertible.h in Headers */,
 				83C4902F1B5E6BAB00C54BE7 /* SwiftImage.h in Headers */,
+				3E1266332337D23A2A123917 /* GenericImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +376,7 @@
 				3E126D95DE57B3464C00899B /* GenericImageConvertible.swift in Sources */,
 				3E1264DC7FB1EE4F1A0874A8 /* UIImageConvertible.swift in Sources */,
 				83E5255B1B6283430057A7EB /* ImageRegion.swift in Sources */,
+				83A6E1E91B80C87300D41898 /* GenericImage+CGImageConvertible.m in Sources */,
 				3E12627D3D9A0AA4944AC976 /* CVPixelBuffer+GenericImageConvertible.swift in Sources */,
 				3E12635DAD6FF11D0D67AFD1 /* GenericImage+CVPixelBufferConvertible.swift in Sources */,
 				8362246A1B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift in Sources */,
@@ -374,6 +389,7 @@
 				3E126EE4798F55C890CC3FCD /* UIImage+ImmutableImage.swift in Sources */,
 				3E1265E367D9EAF8357645F4 /* CGImage+CVPixelBufferConvertible.swift in Sources */,
 				3E126323898B4CFDF665A20C /* CVPixelBuffer+CGImageConvertible.swift in Sources */,
+				3E126B5C5AE096F498B7258E /* GenericImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +505,7 @@
 		83C490401B5E6BAC00C54BE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -499,12 +516,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chrisHatton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		83C490411B5E6BAC00C54BE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
