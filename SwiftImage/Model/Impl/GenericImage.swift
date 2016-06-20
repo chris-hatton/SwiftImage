@@ -17,20 +17,20 @@ public class GenericImage<TP : Pixel> : MutableImage
     var pixels : [PixelType]
     
     public var
-        width  : UInt,
-        height : UInt
+        width  : Int,
+        height : Int
     
     // TODO: Create another constructor which uses a PixelSource for the initial fill
     
-    public init(width: UInt, height: UInt, fill: PixelType)
+    public init(width: Int, height: Int, fill: PixelType)
     {
-        pixels = [PixelType](count: Int( width * height ), repeatedValue: fill)
+        pixels = [PixelType](repeating: fill, count: Int( width * height ))
         
         self.width  = width
         self.height = height
     }
     
-    public func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( _ region: ImageRegion ) -> PixelSource
     {
         var i : Int = Int( ( region.y * self.width ) + region.x )
         
@@ -38,16 +38,18 @@ public class GenericImage<TP : Pixel> : MutableImage
         
         let nextLine = { i += widthOutsideRegion }
         
-        let nextPixel = { return self.pixels[ i++ ] }
+        let nextPixel = { return self.pixels[ i ] }
+        
+        i += 1
         
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine )
     }
 
-    public func writeRegion( region: ImageRegion, pixelSource: PixelSource )
+    public func writeRegion( _ region: ImageRegion, pixelSource: PixelSource )
     {
-        for y : UInt in region.y ..< region.height
+        for y : Int in region.y ..< region.height
         {
-            for x : UInt in region.x ..< region.width
+            for x : Int in region.x ..< region.width
             {
                 let pixel : PixelType = pixelSource()!
                 

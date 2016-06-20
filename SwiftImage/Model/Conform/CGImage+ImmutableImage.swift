@@ -14,46 +14,36 @@ extension CGImage : ImmutableImage
     public typealias PixelType = RGBPixel
     public typealias PixelSource = () -> PixelType?
     
-    public func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( _ region: ImageRegion ) -> PixelSource
     {
         let
-            bytesPerRow      : Int = CGImageGetBytesPerRow      ( self ),
-            bitsPerPixel     : Int = CGImageGetBitsPerPixel     ( self ),
-            bitsPerComponent : Int = CGImageGetBitsPerComponent ( self ),
+            bytesPerRow      : Int = self.bytesPerRow,
+            bitsPerPixel     : Int = self.bitsPerPixel,
+            bitsPerComponent : Int = self.bitsPerComponent,
             bytesPerPixel    : Int = bitsPerPixel / bitsPerComponent
         
-        let rawData : CFData = CGDataProviderCopyData( CGImageGetDataProvider( self ) )!
+        let rawData : CFData = self.dataProvider!.data!
         
-        let pixelPtr = CFDataGetBytePtr( rawData )
+        guard var pixelPtr = CFDataGetBytePtr( rawData ) else { fatalError() }
         
-        pixelPtr.advancedBy( Int( region.y ) * bytesPerRow ) + ( Int( region.x ) * bytesPerPixel )
+        pixelPtr = pixelPtr.advanced( by: Int( region.y ) * bytesPerRow ) + ( Int( region.x ) * bytesPerPixel )
         
         let widthOutsideRegion = Int( self.width - region.width )
         
-        let nextLine : ()->Void = { pixelPtr.advancedBy( widthOutsideRegion * ( bytesPerPixel - 1 ) ) }
+        let nextLine : ()->Void = { pixelPtr = pixelPtr.advanced( by: widthOutsideRegion * ( bytesPerPixel - 1 ) ) }
         
         let nextPixel : ()->PixelType =
         {
-            let r : Double = Double( pixelPtr.memory / 255 )
-            pixelPtr.advancedBy(1)
-            let g : Double = Double( pixelPtr.memory / 255 )
-            pixelPtr.advancedBy(1)
-            let b : Double = Double( pixelPtr.memory / 255 )
-            pixelPtr.advancedBy(1)
+            let r : Double = Double( pixelPtr.pointee / 255 )
+            pixelPtr = pixelPtr.advanced(by:1)
+            let g : Double = Double( pixelPtr.pointee / 255 )
+            pixelPtr = pixelPtr.advanced(by:1)
+            let b : Double = Double( pixelPtr.pointee / 255 )
+            pixelPtr = pixelPtr.advanced(by:1)
             
             return RGBPixel(r,g,b)
         }
         
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine )
-    }
-    
-    public var width : UInt
-    {
-        get { return UInt( CGImageGetWidth( self ) ) }
-    }
-    
-    public var height : UInt
-    {
-        get { return UInt( CGImageGetHeight( self ) ) }
     }
 }

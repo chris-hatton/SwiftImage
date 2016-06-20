@@ -21,7 +21,7 @@ extension CGImage : CVPixelBufferConvertible
             kCVPixelBufferCGBitmapContextCompatibilityKey as String : false
         ]
 
-        let bufferRef : UnsafeMutablePointer<CVPixelBuffer?> = UnsafeMutablePointer<CVPixelBuffer?>()
+        var bufferRef : CVPixelBuffer? = nil
 
         let status : CVReturn = CVPixelBufferCreate(
             kCFAllocatorDefault,
@@ -29,35 +29,33 @@ extension CGImage : CVPixelBufferConvertible
             Int(frameSize.height),
             kCVPixelFormatType_32ARGB,
             options as CFDictionary,
-            bufferRef
+            &bufferRef
         )
 
         assert(status == kCVReturnSuccess)
 
-        let buffer : CVPixelBuffer? = ( status == kCVReturnSuccess ) ? ( bufferRef.memory ) : nil
+        let buffer : CVPixelBuffer? = ( status == kCVReturnSuccess ) ? ( bufferRef! ) : nil
 
         if buffer != nil
         {
-            let pixelData : UnsafeMutablePointer<Void> = CVPixelBufferGetBaseAddress( bufferRef.memory! );
+            let pixelData : UnsafeMutablePointer<Void> = CVPixelBufferGetBaseAddress( bufferRef! )!;
 
-            let rgbColorSpace : CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
+            let rgbColorSpace : CGColorSpace = CGColorSpaceCreateDeviceRGB()
 
-            let context : CGContext = CGBitmapContextCreate(
-                pixelData,
-                Int( frameSize.width ),
-                Int( frameSize.height ),
-                8,
-                CVPixelBufferGetBytesPerRow( buffer! ),
-                rgbColorSpace,
-                UInt32(0) //TODO: Replace with kCGImageAlphaNoneSkipLast
+            let context : CGContext = CGContext(
+                data: pixelData,
+                width: Int( frameSize.width ),
+                height: Int( frameSize.height ),
+                bitsPerComponent: 8,
+                bytesPerRow: CVPixelBufferGetBytesPerRow( buffer! ),
+                space: rgbColorSpace,
+                bitmapInfo: UInt32(0) //TODO: Replace with kCGImageAlphaNoneSkipLast
             )!
 
-            let rect : CGRect = CGRectMake(0, 0, CGFloat( width ), CGFloat( height ) )
+            let rect : CGRect = CGRect(x: 0, y: 0, width: CGFloat( width ), height: CGFloat( height ) )
 
-            CGContextDrawImage(
-                context,
-                rect,
-                self
+            context.draw(in: rect,
+                image: self
             )
 
             CVPixelBufferUnlockBaseAddress( buffer!, 0 )

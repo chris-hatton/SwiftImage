@@ -16,7 +16,7 @@ extension RGBPixel
     }
 }
 
-func HSVtoRGB(hsv: HSVPixel) -> RGBPixel
+func HSVtoRGB(_ hsv: HSVPixel) -> RGBPixel
 {
     var
         r : Double,
@@ -80,7 +80,7 @@ extension HSVPixel
     }
 }
 
-func RGBtoHSV(rgb: RGBPixel) -> HSVPixel
+func RGBtoHSV(_ rgb: RGBPixel) -> HSVPixel
 {
     let
         r     : Double = rgb.red,
@@ -112,7 +112,7 @@ func RGBtoHSV(rgb: RGBPixel) -> HSVPixel
     else
     {
         s = 0.0
-        h = Double.NaN
+        h = Double.nan
     }
     
     if( r == max )

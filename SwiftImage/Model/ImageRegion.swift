@@ -11,12 +11,12 @@ import Foundation
 public struct ImageRegion
 {
     public let
-        x     : UInt,
-        y     : UInt,
-        width : UInt,
-        height: UInt
+        x     : Int,
+        y     : Int,
+        width : Int,
+        height: Int
     
-    init( x: UInt = 0, y: UInt = 0, width: UInt, height: UInt )
+    init( x: Int = 0, y: Int = 0, width: Int, height: Int )
     {
         self.x      = x
         self.y      = y
@@ -32,8 +32,8 @@ public struct ImageRegion
         self.height = image.height
     }
     
-    static func singlePixelRegion( x: UInt, y: UInt ) -> ImageRegion
+    static func singlePixelRegion( x: Int, y: Int ) -> ImageRegion
     {
-        return ImageRegion( x: x, y: y, width: UInt(1), height: UInt(1) )
+        return ImageRegion( x: x, y: y, width: Int(1), height: Int(1) )
     }
 }

@@ -15,6 +15,6 @@ extension GenericImage : UIImageConvertible
     {
         let cgImage : CGImage = self.toCGImage()
         
-        return UIImage(CGImage: cgImage)
+        return UIImage(cgImage: cgImage)
     }
 }

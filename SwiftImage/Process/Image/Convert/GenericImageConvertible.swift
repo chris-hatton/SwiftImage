@@ -7,7 +7,7 @@ import Foundation
 
  protocol GenericImageConvertible
 {
-    typealias PixelType : Pixel
+    associatedtype PixelType : Pixel
 
     func toGenericImage() -> GenericImage<PixelType>
 }

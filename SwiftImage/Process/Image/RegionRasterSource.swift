@@ -9,14 +9,14 @@
 import Foundation
 
 func regionRasterSource<PixelType:Pixel>(
-        region:    ImageRegion,
+        _ region:    ImageRegion,
         nextPixel: ()->PixelType,
         nextLine:  ()->Void,
         end:       (()->Void)? = nil) -> ()->PixelType?
 {
     var
-        x : UInt = region.x,
-        y : UInt = region.y
+        x : Int = region.x,
+        y : Int = region.y
     
     var ended = false
     
@@ -40,13 +40,13 @@ func regionRasterSource<PixelType:Pixel>(
             {
                 nextLine()
                 
-                ++y
+                y += 1
                 x = 0
             }
             
             pixel = nextPixel()
             
-            ++x
+            x += 1
         }
         
         return pixel

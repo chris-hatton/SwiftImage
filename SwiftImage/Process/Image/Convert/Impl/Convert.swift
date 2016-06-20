@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-func convert<TP>(genImage : GenericImage<TP>?) -> CGImage
+func convert<TP>(_ genImage : GenericImage<TP>?) -> CGImage
 {
     let
         width            : Int = 10,
@@ -27,13 +27,14 @@ func convert<TP>(genImage : GenericImage<TP>?) -> CGImage
         
         let releaseBytePointer : CGDataProviderReleaseBytePointerCallback? = nil
         let getBytePointer     : CGDataProviderGetBytePointerCallback? =
-        {
-            (in1) -> UnsafePointer<Void> in
+            {
+                (in1 : UnsafeMutablePointer<Swift.Void>?) -> UnsafePointer<Swift.Void>? in
             
             let dataPtr = UnsafePointer<Void>(in1)
             
-            return dataPtr
-        }
+            return dataPtr!
+            
+            }
         
         let getBytesAtPosition : CGDataProviderGetBytesAtPositionCallback? = nil
         let releaseInfo        : CGDataProviderReleaseInfoCallback?        = nil
@@ -53,12 +54,12 @@ func convert<TP>(genImage : GenericImage<TP>?) -> CGImage
     {
         let size : off_t = off_t( bytesPerRow * height )
         
-        let dataPtr : UnsafeMutablePointer<Void> = UnsafeMutablePointer<Void>(nil)
+        let dataPtr : UnsafeMutablePointer<Void> = UnsafeMutablePointer<Void>(nil)!
         
-        dataProvider = CGDataProviderCreateDirect(
-            dataPtr,
-            size,
-            &cgDataProviderDirectCallbacks
+        dataProvider = CGDataProvider(
+            directInfo: dataPtr,
+            size: size,
+            callbacks: &cgDataProviderDirectCallbacks
             )!
     }
     
@@ -67,24 +68,25 @@ func convert<TP>(genImage : GenericImage<TP>?) -> CGImage
     do // Create image
     {
         let
-        colorSpace        : CGColorSpace           = CGColorSpaceCreateDeviceRGB()!,
-        bitmapInfo        : CGBitmapInfo           = CGBitmapInfo.AlphaInfoMask,
-        decode            : UnsafePointer<CGFloat> = UnsafePointer<CGFloat>(),
-        intent            : CGColorRenderingIntent = CGColorRenderingIntent.RenderingIntentDefault,
-        shouldInterpolate : Bool                   = false
+            colorSpace        : CGColorSpace           = CGColorSpaceCreateDeviceRGB(),
+            bitmapInfo        : CGBitmapInfo           = CGBitmapInfo.alphaInfoMask,
+            intent            : CGColorRenderingIntent = CGColorRenderingIntent.defaultIntent,
+            shouldInterpolate : Bool                   = false
+            
+        var decode : CGFloat = 0.0
         
-        cgImage = CGImageCreate(
-            width,
-            height,
-            bitsPerComponent,
-            bitsPerPixel,
-            bytesPerRow,
-            colorSpace,
-            bitmapInfo,
-            dataProvider,
-            decode,
-            shouldInterpolate,
-            intent
+        cgImage = CGImage(
+            width: width,
+            height: height,
+            bitsPerComponent: bitsPerComponent,
+            bitsPerPixel: bitsPerPixel,
+            bytesPerRow: bytesPerRow,
+            space: colorSpace,
+            bitmapInfo: bitmapInfo,
+            provider: dataProvider,
+            decode: &decode,
+            shouldInterpolate: shouldInterpolate,
+            intent: intent
             )!
     }
     

@@ -42,16 +42,15 @@ public struct RGBPixel : Pixel
     
     init(_ color: UIColor)
     {
-        let
-            redPointer   = UnsafeMutablePointer<CGFloat>(),
-            greenPointer = UnsafeMutablePointer<CGFloat>(),
-            bluePointer  = UnsafeMutablePointer<CGFloat>(),
-            alphaPointer = UnsafeMutablePointer<CGFloat>()
+        var red     : CGFloat = 0.0
+        var green   : CGFloat = 0.0
+        var blue    : CGFloat = 0.0
+        var alpha   : CGFloat = 0.0
         
-        color.getRed(redPointer, green: greenPointer, blue: bluePointer, alpha: alphaPointer)
+        color.getRed( &red, green: &green, blue: &blue, alpha: &alpha)
         
-        self.red   = Double( redPointer.memory   )
-        self.green = Double( greenPointer.memory )
-        self.blue  = Double( bluePointer.memory  )
+        self.red   = Double( red )
+        self.green = Double( green )
+        self.blue  = Double( blue )
     }
 }

@@ -11,13 +11,13 @@ extension CVPixelBuffer : CGImageConvertible
 {
     public func toCGImage() -> CGImage
     {
-        let ciImage: CIImage = CIImage( CVPixelBuffer: self )
+        let ciImage: CIImage = CIImage( cvPixelBuffer: self )
 
         let temporaryContext : CIContext = CIContext()
 
-        let rect : CGRect = CGRectMake( 0, 0, CGFloat( self.width ), CGFloat( self.height ) )
+        let rect : CGRect = CGRect( x: 0, y: 0, width: CGFloat( self.width ), height: CGFloat( self.height ) )
 
-        let cgImage : CGImage = temporaryContext.createCGImage( ciImage, fromRect: rect )
+        let cgImage : CGImage = temporaryContext.createCGImage( ciImage, from: rect )!
 
         return cgImage
     }

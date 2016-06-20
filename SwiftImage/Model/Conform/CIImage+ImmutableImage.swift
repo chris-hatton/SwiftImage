@@ -11,7 +11,7 @@ extension CIImage : ImmutableImage
     public typealias PixelType   = RGBPixel
     public typealias PixelSource = ()->PixelType?
     
-    public func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( _ region: ImageRegion ) -> PixelSource
     {
         let pixelSource : PixelSource =
         {
@@ -21,13 +21,13 @@ extension CIImage : ImmutableImage
         return pixelSource
     }
     
-    public var width : UInt
+    public var width : Int
     {
-        get { return UInt( self.extent.width ) }
+        get { return Int( self.extent.width ) }
     }
     
-    public var height : UInt
+    public var height : Int
     {
-        get { return UInt( self.extent.height ) }
+        get { return Int( self.extent.height ) }
     }
 }

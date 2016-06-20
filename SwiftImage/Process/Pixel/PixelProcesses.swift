@@ -18,7 +18,7 @@ struct PixelSource<PixelType : Pixel>
 }
 */
 
-func PixelIdentityProcess<PixelType : Pixel>(input: PixelType) -> PixelType
+func PixelIdentityProcess<PixelType : Pixel>(_ input: PixelType) -> PixelType
 {
     return input
 }
@@ -32,7 +32,7 @@ class RGBviaHSVProcessor
         self.hsvProcess = hsvProcess
     }
     
-    func RGBPixelProcess(rgb: RGBPixel) -> RGBPixel
+    func RGBPixelProcess(_ rgb: RGBPixel) -> RGBPixel
     {
         let
             hsvIn  = RGBtoHSV(rgb),

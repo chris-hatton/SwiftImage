@@ -16,7 +16,7 @@ extension CVPixelBuffer : MutableImage
     public typealias PixelType   = RGBPixel
     public typealias PixelSource = ()->PixelType?
     
-    public func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( _ region: ImageRegion ) -> PixelSource
     {
         assert( CVPixelBufferGetPixelFormatType( self ) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
         
@@ -29,23 +29,24 @@ extension CVPixelBuffer : MutableImage
         
         assert( bytesPerPixel == 4, "Expected 4 bytes per pixel" )
         
+        guard var pixelPtr = UnsafeMutablePointer<UInt8>( baseAddress ) else { fatalError() }
+        
         let
-            pixelPtr         = UnsafeMutablePointer<UInt8>( baseAddress ),
-            firstPixelOffset = Int( ( region.y * UInt( bytesPerRow ) ) + ( region.x * UInt( bytesPerPixel ) ) ),
+            firstPixelOffset = Int( ( region.y * Int( bytesPerRow ) ) + ( region.x * Int( bytesPerPixel ) ) ),
             nextLineOffset   = Int( self.width - region.width ) * ( bytesPerPixel - 1 )
         
-        pixelPtr.advancedBy( firstPixelOffset )
+        pixelPtr = pixelPtr.advanced( by: firstPixelOffset )
         
-        let nextLine : ()->Void = { pixelPtr.advancedBy( nextLineOffset ) }
+        let nextLine : ()->Void = { pixelPtr = pixelPtr.advanced( by: nextLineOffset ) }
         
         let nextPixel : ()->PixelType =
         {
-            let r : Double = Double( pixelPtr.memory / 255 )
-            pixelPtr.advancedBy(1)
-            let g : Double = Double( pixelPtr.memory / 255 )
-            pixelPtr.advancedBy(1)
-            let b : Double = Double( pixelPtr.memory / 255 )
-            pixelPtr.advancedBy(2)
+            let r : Double = Double( pixelPtr.pointee / 255 )
+            pixelPtr = pixelPtr.advanced(by: 1)
+            let g : Double = Double( pixelPtr.pointee / 255 )
+            pixelPtr = pixelPtr.advanced(by: 1)
+            let b : Double = Double( pixelPtr.pointee / 255 )
+            pixelPtr = pixelPtr.advanced(by: 2)
             
             return RGBPixel(r,g,b)
         }
@@ -55,7 +56,7 @@ extension CVPixelBuffer : MutableImage
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine, end: end )
     }
     
-    public func writeRegion( region: ImageRegion, pixelSource: PixelSource )
+    public func writeRegion( _ region: ImageRegion, pixelSource: PixelSource )
     {
         assert( CVPixelBufferGetPixelFormatType(self) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
         
@@ -68,11 +69,11 @@ extension CVPixelBuffer : MutableImage
             
         assert( bytesPerPixel == 4, "Expected 4 bytes per pixel" )
         
-        let
-            pixelPointer = UnsafeMutablePointer<UInt8>(baseAddress),
-            pixelOffset  = ( region.y * UInt( bytesPerRow ) ) + ( region.x * UInt( bytesPerPixel ) )
+        guard var pixelPointer = UnsafeMutablePointer<UInt8>(baseAddress) else { fatalError() }
+        
+        let pixelOffset  = ( region.y * Int( bytesPerRow ) ) + ( region.x * Int( bytesPerPixel ) )
             
-        pixelPointer.advancedBy( Int( pixelOffset ) )
+        pixelPointer = pixelPointer.advanced( by: Int( pixelOffset ) )
             
         let nextRowOffset : Int = Int( self.width - region.width )
         
@@ -82,29 +83,29 @@ extension CVPixelBuffer : MutableImage
             {
                 let pixel = pixelSource()!
                 
-                pixelPointer.memory = UInt8( pixel.blue * 255.0 )
+                pixelPointer.pointee = UInt8( pixel.blue * 255.0 )
                 
-                pixelPointer.advancedBy( 1 )
-                pixelPointer.memory = UInt8( pixel.green * 255.0 )
+                pixelPointer = pixelPointer.advanced( by: 1 )
+                pixelPointer.pointee = UInt8( pixel.green * 255.0 )
                 
-                pixelPointer.advancedBy( 1 )
-                pixelPointer.memory = UInt8( pixel.red * 255.0 )
+                pixelPointer = pixelPointer.advanced( by: 1 )
+                pixelPointer.pointee = UInt8( pixel.red * 255.0 )
             }
             
-            pixelPointer.advancedBy( nextRowOffset - 1 )
+            pixelPointer = pixelPointer.advanced( by: nextRowOffset - 1 )
         }
         
         CVPixelBufferUnlockBaseAddress( self,0 )
     }
     
-    public var width : UInt
+    public var width : Int
     {
-        get { return UInt( CVPixelBufferGetWidth( self ) ) }
+        get { return Int( CVPixelBufferGetWidth( self ) ) }
     }
     
-    public var height : UInt
+    public var height : Int
     {
-        get { return UInt( CVPixelBufferGetHeight( self ) ) }
+        get { return Int( CVPixelBufferGetHeight( self ) ) }
     }
 }
 

@@ -11,7 +11,7 @@ extension UIImage : ImmutableImage
     public typealias PixelType   = RGBPixel
     public typealias PixelSource = ()->PixelType?
     
-    public func readRegion( region: ImageRegion ) -> PixelSource
+    public func readRegion( _ region: ImageRegion ) -> PixelSource
     {
         let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
         
@@ -22,21 +22,21 @@ extension UIImage : ImmutableImage
             bytesPerPixel    : Int = 4,
             bytesPerRow      : Int = (bytesPerPixel * width)
         
-        let pixelPtr : UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.alloc( bytesPerRow * height )
+        var pixelPtr : UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>( allocatingCapacity: bytesPerRow * height )
         
-        let context : CGContext = CGBitmapContextCreate(
-            pixelPtr,
-            width,
-            height,
-            bitsPerComponent,
-            bytesPerRow,
-            rgbColorSpace,
-            CGImageAlphaInfo.NoneSkipLast.rawValue
+        let context : CGContext = CGContext(
+            data: pixelPtr,
+            width: width,
+            height: height,
+            bitsPerComponent: bitsPerComponent,
+            bytesPerRow: bytesPerRow,
+            space: rgbColorSpace,
+            bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue
         )!
         
         UIGraphicsPushContext(context)
         
-        self.drawAtPoint( CGPointMake( -CGFloat( region.x ), -CGFloat( region.y ) ) )
+        self.draw( at: CGPoint( x: -CGFloat( region.x ), y: -CGFloat( region.y ) ) )
         
         UIGraphicsPopContext()
         
@@ -50,14 +50,14 @@ extension UIImage : ImmutableImage
             
             if pixelIndex < pixelCount
             {
-                let r : Double = Double( pixelPtr.memory / 255 )
-                pixelPtr.advancedBy(1)
-                let g : Double = Double( pixelPtr.memory / 255 )
-                pixelPtr.advancedBy(1)
-                let b : Double = Double( pixelPtr.memory / 255 )
-                pixelPtr.advancedBy(1)
+                let r : Double = Double( pixelPtr.pointee / 255 )
+                pixelPtr = pixelPtr.advanced(by: 1)
+                let g : Double = Double( pixelPtr.pointee / 255 )
+                pixelPtr = pixelPtr.advanced(by: 1)
+                let b : Double = Double( pixelPtr.pointee / 255 )
+                pixelPtr = pixelPtr.advanced(by: 1)
                 
-                pixelPtr.advancedBy(1) // Discard Alpha
+                pixelPtr = pixelPtr.advanced(by: 1) // Discard Alpha
                 
                 pixel = RGBPixel(r,g,b)
             }
@@ -66,7 +66,7 @@ extension UIImage : ImmutableImage
                 pixel = nil
             }
             
-            ++pixelCount
+            pixelCount += 1
             
             return pixel
         }
@@ -74,13 +74,13 @@ extension UIImage : ImmutableImage
         return pixelSource
     }
 
-    public var width : UInt
+    public var width : Int
     {
-        get { return UInt( self.size.width ) }
+        get { return Int( self.size.width ) }
     }
     
-    public var height : UInt
+    public var height : Int
     {
-        get { return UInt( self.size.height ) }
+        get { return Int( self.size.height ) }
     }
 }
