@@ -78,7 +78,7 @@ private class GenericToCGImageConverter
         {
             let
             colorSpace        : CGColorSpace           = CGColorSpaceCreateDeviceRGB(),
-            bitmapInfo        : CGBitmapInfo           = CGBitmapInfo.alphaInfoMask,
+            bitmapInfo        : CGBitmapInfo           = CGBitmapInfo(rawValue: 0),
             intent            : CGColorRenderingIntent = CGColorRenderingIntent.defaultIntent,
             shouldInterpolate : Bool                   = false
             

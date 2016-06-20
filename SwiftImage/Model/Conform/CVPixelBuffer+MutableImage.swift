@@ -109,7 +109,7 @@ extension CVPixelBuffer : MutableImage
     }
 }
 
-/*
+
 extension CVPixelBuffer
 {
     func cropScaleArea(x: UInt, y: UInt, height: UInt, width: UInt, outputWidth: UInt, outputHeight: UInt) -> CVPixelBuffer
@@ -124,12 +124,12 @@ extension CVPixelBuffer
             bytesPerRowIn        = CVPixelBufferGetBytesPerRow(self),
             startPos             = Int( (y*UInt(bytesPerRowIn)) + (UInt(planeCount)*x) ),
             bytesPerRowOut       = planeCount*outputWidth,
-            inBuff               = vImage_Buffer( data: baseAddress.advancedBy( startPos ), height:height, width:width, rowBytes:bytesPerRowIn ),
+            inBuff               = vImage_Buffer( data: baseAddress?.advanced( by: startPos ), height:height, width:width, rowBytes:bytesPerRowIn ),
             outBuff              = vImage_Buffer( data: malloc( Int( planeCount * outputWidth * outputHeight ) ), height: outputHeight, width: outputWidth, rowBytes: Int( bytesPerRowOut ) ),
             flags : vImage_Flags = 0,
             imageInBufferPtr     = UnsafeMutablePointer<vImage_Buffer>(inBuff.data),
             imageOutBufferPtr    = UnsafeMutablePointer<vImage_Buffer>(outBuff.data),
-            err                  = vImageScale_ARGB8888(imageInBufferPtr, imageOutBufferPtr, nil, flags)
+            err                  = vImageScale_ARGB8888(imageInBufferPtr!, imageOutBufferPtr!, nil, flags)
 
         let outImage : CVPixelBuffer
         
@@ -149,13 +149,14 @@ extension CVPixelBuffer
             baseAddress           : UnsafeMutablePointer<Void>           = outBuff.data,
             bytesPerRow           : Int                                  = Int( bytesPerRowOut ),
             releaseCallback       : CVPixelBufferReleaseBytesCallback?   = nil,
-            releaseRefCon         : UnsafeMutablePointer<Void>           = nil,
-            pixelBufferAttributes : CFDictionary?                        = nil,
-            pixelBufferOut        : UnsafeMutablePointer<CVPixelBuffer?> = UnsafeMutablePointer<CVPixelBuffer?>()
+            releaseRefCon         : UnsafeMutablePointer<Void>?          = nil,
+            pixelBufferAttributes : CFDictionary?                        = nil
+            
+            var pixelBufferOut : CVPixelBuffer? = nil
 
-            let pix2 = UnsafeMutablePointer<CVPixelBuffer?>()
+            var pix2 : CVPixelBuffer? = nil
 
-            let testResult = CVPixelBufferCreate(kCFAllocatorDefault, 640, 480, kCVPixelFormatType_32BGRA, nil, pix2)
+            let testResult = CVPixelBufferCreate(kCFAllocatorDefault, 640, 480, kCVPixelFormatType_32BGRA, nil, &pix2)
 
             print(testResult)
 
@@ -169,18 +170,17 @@ extension CVPixelBuffer
                 releaseCallback,
                 releaseRefCon,
                 pixelBufferAttributes,
-                pixelBufferOut
+                &pixelBufferOut
             )
 
             CVPixelBufferUnlockBaseAddress(self,0)
 
             if result == kCVReturnSuccess
             {
-                let pixelBufferMemory : CVPixelBuffer? = pixelBufferOut.memory
 
-                print(pixelBufferMemory)
+                print(pixelBufferOut)
 
-                outImage = pixelBufferMemory!
+                outImage = pixelBufferOut!
             }
             else
             {
@@ -191,4 +191,3 @@ extension CVPixelBuffer
         return outImage
     }
 }
-*/
