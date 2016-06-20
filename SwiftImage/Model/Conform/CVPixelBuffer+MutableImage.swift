@@ -112,7 +112,7 @@ extension CVPixelBuffer : MutableImage
 
 extension CVPixelBuffer
 {
-    func cropScaleArea(x: UInt, y: UInt, height: UInt, width: UInt, outputWidth: UInt, outputHeight: UInt) -> CVPixelBuffer
+    func cropArea(x: Int, y: UInt, height: Int, width: Int, outputWidth: Int? = width, outputHeight: Int? = height) -> CVPixelBuffer
     {
         assert( CVPixelBufferGetPixelFormatType(self) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
 
