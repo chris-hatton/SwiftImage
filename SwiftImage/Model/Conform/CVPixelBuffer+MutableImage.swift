@@ -16,20 +16,18 @@ extension CVPixelBuffer : MutableImage
     public typealias PixelType   = RGBPixel
     public typealias PixelSource = ()->PixelType?
     
-    public func readRegion( _ region: ImageRegion ) -> PixelSource
+    public func read( region: ImageRegion ) -> PixelSource
     {
-        assert( CVPixelBufferGetPixelFormatType( self ) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
+        guard CVPixelBufferGetPixelFormatType( self ) == kCVPixelFormatType_32BGRA else { preconditionFailure("This function supports only 32BGRA formatted buffers") }
         
-        CVPixelBufferLockBaseAddress( self, 0 );
+        CVPixelBufferLockBaseAddress( self, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)) )
         
-        let
-            baseAddress   = CVPixelBufferGetBaseAddress( self ),
-            bytesPerRow   = CVPixelBufferGetBytesPerRow( self ),
+        var pixelPtr      = CVPixelBufferGetBaseAddress( self )!.assumingMemoryBound(to: UInt8.self)
+        
+        let bytesPerRow   = CVPixelBufferGetBytesPerRow( self ),
             bytesPerPixel = Int( self.width )
         
         assert( bytesPerPixel == 4, "Expected 4 bytes per pixel" )
-        
-        guard var pixelPtr = UnsafeMutablePointer<UInt8>( baseAddress ) else { fatalError() }
         
         let
             firstPixelOffset = Int( ( region.y * Int( bytesPerRow ) ) + ( region.x * Int( bytesPerPixel ) ) ),
@@ -51,16 +49,16 @@ extension CVPixelBuffer : MutableImage
             return RGBPixel(r,g,b)
         }
         
-        let end : ()->Void = { CVPixelBufferUnlockBaseAddress(self,0) }
+        let end : ()->Void = { CVPixelBufferUnlockBaseAddress(self,CVPixelBufferLockFlags(rawValue: CVOptionFlags(0))) }
         
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine, end: end )
     }
     
-    public func writeRegion( _ region: ImageRegion, pixelSource: PixelSource )
+    public func write( region: ImageRegion, pixelSource: @escaping PixelSource )
     {
         assert( CVPixelBufferGetPixelFormatType(self) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
         
-        CVPixelBufferLockBaseAddress( self, 0 )
+        CVPixelBufferLockBaseAddress( self, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)) )
         
         let
             baseAddress   = CVPixelBufferGetBaseAddress( self ),
@@ -69,7 +67,7 @@ extension CVPixelBuffer : MutableImage
             
         assert( bytesPerPixel == 4, "Expected 4 bytes per pixel" )
         
-        guard var pixelPointer = UnsafeMutablePointer<UInt8>(baseAddress) else { fatalError() }
+        guard var pixelPointer = baseAddress?.assumingMemoryBound(to: UInt8.self ) else { fatalError() }
         
         let pixelOffset  = ( region.y * Int( bytesPerRow ) ) + ( region.x * Int( bytesPerPixel ) )
             
@@ -83,19 +81,19 @@ extension CVPixelBuffer : MutableImage
             {
                 let pixel = pixelSource()!
                 
-                pixelPointer.pointee = UInt8( pixel.blue * 255.0 )
+                pixelPointer.pointee = UInt8(  CGFloat(pixel.blue() as CGFloat) * CGFloat(255.0) )
                 
                 pixelPointer = pixelPointer.advanced( by: 1 )
-                pixelPointer.pointee = UInt8( pixel.green * 255.0 )
+                pixelPointer.pointee = UInt8(  CGFloat(pixel.green() as CGFloat) * CGFloat(255.0) )
                 
                 pixelPointer = pixelPointer.advanced( by: 1 )
-                pixelPointer.pointee = UInt8( pixel.red * 255.0 )
+                pixelPointer.pointee = UInt8(  CGFloat(pixel.red() as CGFloat) * CGFloat(255.0) )
             }
             
             pixelPointer = pixelPointer.advanced( by: nextRowOffset - 1 )
         }
         
-        CVPixelBufferUnlockBaseAddress( self,0 )
+        CVPixelBufferUnlockBaseAddress( self,CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)) )
     }
     
     public var width : Int
@@ -110,26 +108,26 @@ extension CVPixelBuffer : MutableImage
 }
 
 
-extension CVPixelBuffer
+public extension CVPixelBuffer
 {
-    func cropArea(x: Int, y: UInt, height: Int, width: Int, outputWidth: Int? = width, outputHeight: Int? = height) -> CVPixelBuffer
+    public func cropArea(x: Int, y: Int, height: Int, width: Int, outputWidth: Int, outputHeight: Int) -> CVPixelBuffer
     {
         assert( CVPixelBufferGetPixelFormatType(self) == kCVPixelFormatType_32BGRA, "This function supports only 32BGRA formatted buffers")
 
-        CVPixelBufferLockBaseAddress(self,0)
+        CVPixelBufferLockBaseAddress(self,CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
 
         let
-            planeCount : UInt    = 4,
+            planeCount : Int    = 4,
             baseAddress          = CVPixelBufferGetBaseAddress(self),
             bytesPerRowIn        = CVPixelBufferGetBytesPerRow(self),
-            startPos             = Int( (y*UInt(bytesPerRowIn)) + (UInt(planeCount)*x) ),
+            startPos             = Int( (y*bytesPerRowIn) + (planeCount*x) ),
             bytesPerRowOut       = planeCount*outputWidth,
-            inBuff               = vImage_Buffer( data: baseAddress?.advanced( by: startPos ), height:height, width:width, rowBytes:bytesPerRowIn ),
-            outBuff              = vImage_Buffer( data: malloc( Int( planeCount * outputWidth * outputHeight ) ), height: outputHeight, width: outputWidth, rowBytes: Int( bytesPerRowOut ) ),
+            inBuff               = vImage_Buffer( data: baseAddress?.advanced( by: startPos ), height:vImagePixelCount(height), width:vImagePixelCount(width), rowBytes:bytesPerRowIn ),
+            outBuff              = vImage_Buffer( data: malloc( Int( planeCount * outputWidth * outputHeight ) ), height: vImagePixelCount(outputHeight), width: vImagePixelCount(outputWidth), rowBytes: Int( bytesPerRowOut ) ),
             flags : vImage_Flags = 0,
-            imageInBufferPtr     = UnsafeMutablePointer<vImage_Buffer>(inBuff.data),
-            imageOutBufferPtr    = UnsafeMutablePointer<vImage_Buffer>(outBuff.data),
-            err                  = vImageScale_ARGB8888(imageInBufferPtr!, imageOutBufferPtr!, nil, flags)
+            imageInBufferPtr     = inBuff .data.assumingMemoryBound(to: vImage_Buffer.self),
+            imageOutBufferPtr    = outBuff.data.assumingMemoryBound(to: vImage_Buffer.self),
+            err                  = vImageScale_ARGB8888(imageInBufferPtr, imageOutBufferPtr, nil, flags)
 
         let outImage : CVPixelBuffer
         
@@ -146,10 +144,10 @@ extension CVPixelBuffer
             width                 : Int                                  = Int( outputWidth ),
             height                : Int                                  = Int( outputHeight ),
             pixelFormatType       : OSType                               = kCVPixelFormatType_32BGRA,
-            baseAddress           : UnsafeMutablePointer<Void>           = outBuff.data,
+            baseAddress           : UnsafeMutableRawPointer           = outBuff.data,
             bytesPerRow           : Int                                  = Int( bytesPerRowOut ),
             releaseCallback       : CVPixelBufferReleaseBytesCallback?   = nil,
-            releaseRefCon         : UnsafeMutablePointer<Void>?          = nil,
+            releaseRefCon         : UnsafeMutableRawPointer?          = nil,
             pixelBufferAttributes : CFDictionary?                        = nil
             
             var pixelBufferOut : CVPixelBuffer? = nil
@@ -173,7 +171,7 @@ extension CVPixelBuffer
                 &pixelBufferOut
             )
 
-            CVPixelBufferUnlockBaseAddress(self,0)
+            CVPixelBufferUnlockBaseAddress(self,CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
 
             if result == kCVReturnSuccess
             {

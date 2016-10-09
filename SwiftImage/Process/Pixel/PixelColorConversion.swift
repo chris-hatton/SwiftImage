@@ -83,9 +83,9 @@ extension HSVPixel
 func RGBtoHSV(_ rgb: RGBPixel) -> HSVPixel
 {
     let
-        r     : Double = rgb.red,
-        g     : Double = rgb.green,
-        b     : Double = rgb.blue
+        r     : Double = rgb.red(),
+        g     : Double = rgb.green(),
+        b     : Double = rgb.blue()
     
     var
         min   : Double,

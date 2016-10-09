@@ -10,8 +10,8 @@ import Foundation
 
 func regionRasterSource<PixelType:Pixel>(
         _ region:    ImageRegion,
-        nextPixel: ()->PixelType,
-        nextLine:  ()->Void,
+        nextPixel: @escaping ()->PixelType,
+        nextLine:  @escaping ()->Void,
         end:       (()->Void)? = nil) -> ()->PixelType?
 {
     var

@@ -6,12 +6,12 @@
 import Foundation
 import CoreImage
 
-extension CIImage : ImmutableImage
+extension CIImage : Image
 {
     public typealias PixelType   = RGBPixel
     public typealias PixelSource = ()->PixelType?
     
-    public func readRegion( _ region: ImageRegion ) -> PixelSource
+    public func read( region: ImageRegion ) -> PixelSource
     {
         let pixelSource : PixelSource =
         {

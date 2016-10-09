@@ -11,14 +11,13 @@ import Foundation
 typealias RGBPixelProcess = (RGBPixel)->RGBPixel
 typealias HSVPixelProcess = (HSVPixel)->HSVPixel
 
-/*
+
 struct PixelSource<PixelType : Pixel>
 {
-    typealias T = (x: UInt, y: Uint) -> PixelType
+    typealias T = (_ x: UInt, _ y: UInt) -> PixelType
 }
-*/
 
-func PixelIdentityProcess<PixelType : Pixel>(_ input: PixelType) -> PixelType
+func PixelIdentityProcess<PixelType : Pixel>( _ input: PixelType) -> PixelType
 {
     return input
 }
@@ -27,7 +26,7 @@ class RGBviaHSVProcessor
 {
     let hsvProcess: HSVPixelProcess
     
-    init(hsvProcess:HSVPixelProcess)
+    init(hsvProcess: @escaping HSVPixelProcess)
     {
         self.hsvProcess = hsvProcess
     }

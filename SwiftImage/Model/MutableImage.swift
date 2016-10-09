@@ -5,9 +5,7 @@
 
 import Foundation
 
-public protocol MutableImage : ImmutableImage
+public protocol MutableImage : Image
 {
-    associatedtype PixelType : Pixel
-    
-    func writeRegion( _ region: ImageRegion, pixelSource: PixelSource)
+    func write( region: ImageRegion, pixelSource: Self.PixelSource )
 }

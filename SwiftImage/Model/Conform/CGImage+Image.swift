@@ -9,18 +9,14 @@
 import Foundation
 import CoreGraphics
 
-extension CGImage : ImmutableImage
+extension CGImage : Image
 {
     public typealias PixelType = RGBPixel
     public typealias PixelSource = () -> PixelType?
     
-    public func readRegion( _ region: ImageRegion ) -> PixelSource
+    public func read( region: ImageRegion ) -> PixelSource
     {
-        let
-            bytesPerRow      : Int = self.bytesPerRow,
-            bitsPerPixel     : Int = self.bitsPerPixel,
-            bitsPerComponent : Int = self.bitsPerComponent,
-            bytesPerPixel    : Int = bitsPerPixel / bitsPerComponent
+        let bytesPerPixel : Int = bitsPerPixel / bitsPerComponent
         
         let rawData : CFData = self.dataProvider!.data!
         

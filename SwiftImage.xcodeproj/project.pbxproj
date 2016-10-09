@@ -8,34 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		3E12607F0E56B44354A6A053 /* CVPixelBuffer+MutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1267D94761DEE310082E2C /* CVPixelBuffer+MutableImage.swift */; };
-		3E1260F69FE27BE58F506936 /* ImmutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126D1E1B83AF74CCF1DEEE /* ImmutableImage.swift */; };
+		3E1260F69FE27BE58F506936 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126D1E1B83AF74CCF1DEEE /* Image.swift */; };
 		3E126253AF513DC91A68838C /* GenericImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126AC498DB8E5A8E3ED8E7 /* GenericImage.swift */; };
-		3E12627D3D9A0AA4944AC976 /* CVPixelBuffer+GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126BEDD3BA65EC1856BAF5 /* CVPixelBuffer+GenericImageConvertible.swift */; };
-		3E126323898B4CFDF665A20C /* CVPixelBuffer+CGImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126116B63792A8A83D307A /* CVPixelBuffer+CGImageConvertible.swift */; };
 		3E126329A9EC23E269FABF79 /* PixelProcesses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126EEC6C7DDEF7B8AE5BAD /* PixelProcesses.swift */; };
-		3E12635DAD6FF11D0D67AFD1 /* GenericImage+CVPixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12686464533B56CE69C716 /* GenericImage+CVPixelBufferConvertible.swift */; };
-		3E1264DC7FB1EE4F1A0874A8 /* UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1266AF9F5F59C535C02F27 /* UIImageConvertible.swift */; };
-		3E1265E367D9EAF8357645F4 /* CGImage+CVPixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126378DB07DF19D79E0377 /* CGImage+CVPixelBufferConvertible.swift */; };
+		3E12635DAD6FF11D0D67AFD1 /* GenericImage+ConvertibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12686464533B56CE69C716 /* GenericImage+ConvertibleImage.swift */; };
 		3E1266AE4B620F06BCC45074 /* PixelColorConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12675E5B7C1C9C84FBCAA8 /* PixelColorConversion.swift */; };
-		3E1266FC407F63623844EDD8 /* CIImage+ImmutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1266C6A1CE5A0E46FE7EBE /* CIImage+ImmutableImage.swift */; };
-		3E12677E39AE1DE415F182BC /* GenericImage+CGImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126657E65A22DA5ADF5248 /* GenericImage+CGImageConvertible.swift */; };
-		3E12679DE46C3B7E37E89B70 /* Pixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126C6FB76BE851BDC1A367 /* Pixels.swift */; };
-		3E12681196366981AC1B6818 /* CGImage+GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126D1C48B15B9CF3F75F6D /* CGImage+GenericImageConvertible.swift */; };
-		3E126C31891A24F0A505E394 /* CGImage+ImmutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1261364C7852B928274854 /* CGImage+ImmutableImage.swift */; };
-		3E126D95DE57B3464C00899B /* GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126FF970C12A67E2CEB7AE /* GenericImageConvertible.swift */; };
-		3E126EE4798F55C890CC3FCD /* UIImage+ImmutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126CAD4E59E20D48AAF782 /* UIImage+ImmutableImage.swift */; };
+		3E1266FC407F63623844EDD8 /* CIImage+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1266C6A1CE5A0E46FE7EBE /* CIImage+Image.swift */; };
+		3E12679DE46C3B7E37E89B70 /* RGBPixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126C6FB76BE851BDC1A367 /* RGBPixel.swift */; };
+		3E12681196366981AC1B6818 /* CGImage+ConvertibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126D1C48B15B9CF3F75F6D /* CGImage+ConvertibleImage.swift */; };
+		3E126C31891A24F0A505E394 /* CGImage+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1261364C7852B928274854 /* CGImage+Image.swift */; };
+		3E126EE4798F55C890CC3FCD /* UIImage+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126CAD4E59E20D48AAF782 /* UIImage+Image.swift */; };
 		3E126F3D768D0522E7DB1864 /* MutableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E126C44172C83B2C0DA8C0E /* MutableImage.swift */; };
-		832788A31B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A21B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift */; };
-		832788A51B5FBC2F00F0BAA0 /* CGImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A41B5FBC2F00F0BAA0 /* CGImageConvertible.swift */; };
-		832788A71B5FBCAE00F0BAA0 /* CIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A61B5FBCAE00F0BAA0 /* CIImageConvertible.swift */; };
-		83530BC81B9ED68600620E5D /* Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83530BC71B9ED68600620E5D /* Convert.swift */; };
-		8362246A1B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */; };
-		8362246C1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */; };
+		832788A31B5FBBBA00F0BAA0 /* ConvertibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788A21B5FBBBA00F0BAA0 /* ConvertibleImage.swift */; };
+		8362246A1B6DB6FA00EBE84E /* UIImage+ConvertibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836224691B6DB6FA00EBE84E /* UIImage+ConvertibleImage.swift */; };
+		836815681D7D29A7005CD70B /* CVPixelBuffer+ConvertibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836815671D7D29A7005CD70B /* CVPixelBuffer+ConvertibleImage.swift */; };
 		836CDE201B6792A40079EEDD /* RegionRasterSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */; };
 		83C4902F1B5E6BAB00C54BE7 /* SwiftImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 83C4902E1B5E6BAB00C54BE7 /* SwiftImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83C490351B5E6BAC00C54BE7 /* SwiftImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C490291B5E6BAB00C54BE7 /* SwiftImage.framework */; };
 		83C4903C1B5E6BAC00C54BE7 /* SwiftImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C4903B1B5E6BAC00C54BE7 /* SwiftImageTests.swift */; };
+		83D436881DA79CB600A156CA /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D436871DA79CB600A156CA /* Pixel.swift */; };
+		83D4368A1DA79EC300A156CA /* HSVPixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D436891DA79EC300A156CA /* HSVPixel.swift */; };
+		83D4368C1DA79F0500A156CA /* ConvertiblePixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4368B1DA79F0500A156CA /* ConvertiblePixel.swift */; };
+		83D4368E1DA7A5D700A156CA /* HSVPixel+ConvertiblePixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4368D1DA7A5D700A156CA /* HSVPixel+ConvertiblePixel.swift */; };
+		83D436901DA7A64B00A156CA /* RGBPixel+ConvertiblePixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4368F1DA7A64B00A156CA /* RGBPixel+ConvertiblePixel.swift */; };
 		83E5255B1B6283430057A7EB /* ImageRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E5255A1B6283430057A7EB /* ImageRegion.swift */; };
+		83F885311DA5102E000903CB /* BitmapInfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F885301DA5102E000903CB /* BitmapInfoBuilder.swift */; };
+		83F885331DA51EE0000903CB /* CIImage+ConvertibleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F885321DA51EE0000903CB /* CIImage+ConvertibleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,38 +47,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E126116B63792A8A83D307A /* CVPixelBuffer+CGImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+CGImageConvertible.swift"; sourceTree = "<group>"; };
-		3E1261364C7852B928274854 /* CGImage+ImmutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+ImmutableImage.swift"; sourceTree = "<group>"; };
-		3E126378DB07DF19D79E0377 /* CGImage+CVPixelBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+CVPixelBufferConvertible.swift"; sourceTree = "<group>"; };
-		3E126657E65A22DA5ADF5248 /* GenericImage+CGImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericImage+CGImageConvertible.swift"; sourceTree = "<group>"; };
-		3E1266AF9F5F59C535C02F27 /* UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageConvertible.swift; sourceTree = "<group>"; };
-		3E1266C6A1CE5A0E46FE7EBE /* CIImage+ImmutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage+ImmutableImage.swift"; sourceTree = "<group>"; };
+		3E1261364C7852B928274854 /* CGImage+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+Image.swift"; sourceTree = "<group>"; };
+		3E1266C6A1CE5A0E46FE7EBE /* CIImage+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage+Image.swift"; sourceTree = "<group>"; };
 		3E12675E5B7C1C9C84FBCAA8 /* PixelColorConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelColorConversion.swift; sourceTree = "<group>"; };
 		3E1267D94761DEE310082E2C /* CVPixelBuffer+MutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+MutableImage.swift"; sourceTree = "<group>"; };
-		3E12686464533B56CE69C716 /* GenericImage+CVPixelBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericImage+CVPixelBufferConvertible.swift"; sourceTree = "<group>"; };
+		3E12686464533B56CE69C716 /* GenericImage+ConvertibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GenericImage+ConvertibleImage.swift"; path = "Convert/Impl/GenericImage+ConvertibleImage.swift"; sourceTree = "<group>"; };
 		3E126AC498DB8E5A8E3ED8E7 /* GenericImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericImage.swift; sourceTree = "<group>"; };
-		3E126BEDD3BA65EC1856BAF5 /* CVPixelBuffer+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+GenericImageConvertible.swift"; sourceTree = "<group>"; };
 		3E126C44172C83B2C0DA8C0E /* MutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableImage.swift; sourceTree = "<group>"; };
-		3E126C6FB76BE851BDC1A367 /* Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixels.swift; sourceTree = "<group>"; };
-		3E126CAD4E59E20D48AAF782 /* UIImage+ImmutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImmutableImage.swift"; sourceTree = "<group>"; };
-		3E126D1C48B15B9CF3F75F6D /* CGImage+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+GenericImageConvertible.swift"; sourceTree = "<group>"; };
-		3E126D1E1B83AF74CCF1DEEE /* ImmutableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmutableImage.swift; sourceTree = "<group>"; };
+		3E126C6FB76BE851BDC1A367 /* RGBPixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBPixel.swift; sourceTree = "<group>"; };
+		3E126CAD4E59E20D48AAF782 /* UIImage+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Image.swift"; sourceTree = "<group>"; };
+		3E126D1C48B15B9CF3F75F6D /* CGImage+ConvertibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGImage+ConvertibleImage.swift"; path = "Convert/Impl/CGImage+ConvertibleImage.swift"; sourceTree = "<group>"; };
+		3E126D1E1B83AF74CCF1DEEE /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		3E126EEC6C7DDEF7B8AE5BAD /* PixelProcesses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelProcesses.swift; sourceTree = "<group>"; };
-		3E126FF970C12A67E2CEB7AE /* GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericImageConvertible.swift; sourceTree = "<group>"; };
-		832788A21B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVPixelBufferConvertible.swift; sourceTree = "<group>"; };
-		832788A41B5FBC2F00F0BAA0 /* CGImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageConvertible.swift; sourceTree = "<group>"; };
-		832788A61B5FBCAE00F0BAA0 /* CIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageConvertible.swift; sourceTree = "<group>"; };
-		83530BC71B9ED68600620E5D /* Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convert.swift; sourceTree = "<group>"; };
-		836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GenericImageConvertible.swift"; sourceTree = "<group>"; };
-		8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericImage+UIImageConvertible.swift"; sourceTree = "<group>"; };
-		836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRasterSource.swift; sourceTree = "<group>"; };
+		832788A21B5FBBBA00F0BAA0 /* ConvertibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleImage.swift; path = Convert/ConvertibleImage.swift; sourceTree = "<group>"; };
+		836224691B6DB6FA00EBE84E /* UIImage+ConvertibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+ConvertibleImage.swift"; path = "Convert/Impl/UIImage+ConvertibleImage.swift"; sourceTree = "<group>"; };
+		836815671D7D29A7005CD70B /* CVPixelBuffer+ConvertibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+ConvertibleImage.swift"; sourceTree = "<group>"; };
+		836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegionRasterSource.swift; path = Image/RegionRasterSource.swift; sourceTree = "<group>"; };
 		83C490291B5E6BAB00C54BE7 /* SwiftImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C4902D1B5E6BAB00C54BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83C4902E1B5E6BAB00C54BE7 /* SwiftImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftImage.h; sourceTree = "<group>"; };
 		83C490341B5E6BAC00C54BE7 /* SwiftImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C4903A1B5E6BAC00C54BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83C4903B1B5E6BAC00C54BE7 /* SwiftImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftImageTests.swift; sourceTree = "<group>"; };
+		83D436871DA79CB600A156CA /* Pixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pixel.swift; path = ../Process/Pixel/Pixel.swift; sourceTree = "<group>"; };
+		83D436891DA79EC300A156CA /* HSVPixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSVPixel.swift; sourceTree = "<group>"; };
+		83D4368B1DA79F0500A156CA /* ConvertiblePixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertiblePixel.swift; sourceTree = "<group>"; };
+		83D4368D1DA7A5D700A156CA /* HSVPixel+ConvertiblePixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HSVPixel+ConvertiblePixel.swift"; sourceTree = "<group>"; };
+		83D4368F1DA7A64B00A156CA /* RGBPixel+ConvertiblePixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RGBPixel+ConvertiblePixel.swift"; sourceTree = "<group>"; };
 		83E5255A1B6283430057A7EB /* ImageRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRegion.swift; sourceTree = "<group>"; };
+		83F885301DA5102E000903CB /* BitmapInfoBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitmapInfoBuilder.swift; sourceTree = "<group>"; };
+		83F885321DA51EE0000903CB /* CIImage+ConvertibleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CIImage+ConvertibleImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +101,10 @@
 		3E1262A2BB55C04C5BA51AFF /* Process */ = {
 			isa = PBXGroup;
 			children = (
+				836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */,
 				3E126E3C8085ADCE84A3D5EA /* Pixel */,
 				3E12636820CA777B738C68EC /* Image */,
+				83F885301DA5102E000903CB /* BitmapInfoBuilder.swift */,
 			);
 			path = Process;
 			sourceTree = "<group>";
@@ -114,57 +112,35 @@
 		3E12636820CA777B738C68EC /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				3E1268C08650FE0138FE4CBB /* Convert */,
-				836CDE1F1B6792A40079EEDD /* RegionRasterSource.swift */,
+				832788A21B5FBBBA00F0BAA0 /* ConvertibleImage.swift */,
+				3E12686464533B56CE69C716 /* GenericImage+ConvertibleImage.swift */,
+				3E126D1C48B15B9CF3F75F6D /* CGImage+ConvertibleImage.swift */,
+				836224691B6DB6FA00EBE84E /* UIImage+ConvertibleImage.swift */,
+				836815671D7D29A7005CD70B /* CVPixelBuffer+ConvertibleImage.swift */,
+				83F885321DA51EE0000903CB /* CIImage+ConvertibleImage.swift */,
 			);
 			path = Image;
-			sourceTree = "<group>";
-		};
-		3E1268C08650FE0138FE4CBB /* Convert */ = {
-			isa = PBXGroup;
-			children = (
-				832788A21B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift */,
-				832788A41B5FBC2F00F0BAA0 /* CGImageConvertible.swift */,
-				832788A61B5FBCAE00F0BAA0 /* CIImageConvertible.swift */,
-				3E12698A27BBADB458BB4099 /* Impl */,
-				3E126FF970C12A67E2CEB7AE /* GenericImageConvertible.swift */,
-				3E1266AF9F5F59C535C02F27 /* UIImageConvertible.swift */,
-			);
-			path = Convert;
 			sourceTree = "<group>";
 		};
 		3E1268D43573C17238D305DF /* Conform */ = {
 			isa = PBXGroup;
 			children = (
-				3E1261364C7852B928274854 /* CGImage+ImmutableImage.swift */,
+				3E1261364C7852B928274854 /* CGImage+Image.swift */,
 				3E1267D94761DEE310082E2C /* CVPixelBuffer+MutableImage.swift */,
-				3E1266C6A1CE5A0E46FE7EBE /* CIImage+ImmutableImage.swift */,
-				3E126CAD4E59E20D48AAF782 /* UIImage+ImmutableImage.swift */,
+				3E1266C6A1CE5A0E46FE7EBE /* CIImage+Image.swift */,
+				3E126CAD4E59E20D48AAF782 /* UIImage+Image.swift */,
+				83D4368D1DA7A5D700A156CA /* HSVPixel+ConvertiblePixel.swift */,
+				83D4368F1DA7A64B00A156CA /* RGBPixel+ConvertiblePixel.swift */,
 			);
 			path = Conform;
-			sourceTree = "<group>";
-		};
-		3E12698A27BBADB458BB4099 /* Impl */ = {
-			isa = PBXGroup;
-			children = (
-				3E126BEDD3BA65EC1856BAF5 /* CVPixelBuffer+GenericImageConvertible.swift */,
-				3E12686464533B56CE69C716 /* GenericImage+CVPixelBufferConvertible.swift */,
-				3E126D1C48B15B9CF3F75F6D /* CGImage+GenericImageConvertible.swift */,
-				3E126657E65A22DA5ADF5248 /* GenericImage+CGImageConvertible.swift */,
-				836224691B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift */,
-				8362246B1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift */,
-				3E126378DB07DF19D79E0377 /* CGImage+CVPixelBufferConvertible.swift */,
-				3E126116B63792A8A83D307A /* CVPixelBuffer+CGImageConvertible.swift */,
-				83530BC71B9ED68600620E5D /* Convert.swift */,
-			);
-			path = Impl;
 			sourceTree = "<group>";
 		};
 		3E126AEAC5C87A4C10C3678B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				83D436871DA79CB600A156CA /* Pixel.swift */,
 				3E126C44172C83B2C0DA8C0E /* MutableImage.swift */,
-				3E126D1E1B83AF74CCF1DEEE /* ImmutableImage.swift */,
+				3E126D1E1B83AF74CCF1DEEE /* Image.swift */,
 				3E126E55ACD93C92BAE4B81B /* Impl */,
 				83E5255A1B6283430057A7EB /* ImageRegion.swift */,
 				3E1268D43573C17238D305DF /* Conform */,
@@ -175,6 +151,7 @@
 		3E126E3C8085ADCE84A3D5EA /* Pixel */ = {
 			isa = PBXGroup;
 			children = (
+				83D4368B1DA79F0500A156CA /* ConvertiblePixel.swift */,
 				3E126EEC6C7DDEF7B8AE5BAD /* PixelProcesses.swift */,
 				3E12675E5B7C1C9C84FBCAA8 /* PixelColorConversion.swift */,
 			);
@@ -185,7 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				3E126AC498DB8E5A8E3ED8E7 /* GenericImage.swift */,
-				3E126C6FB76BE851BDC1A367 /* Pixels.swift */,
+				3E126C6FB76BE851BDC1A367 /* RGBPixel.swift */,
+				83D436891DA79EC300A156CA /* HSVPixel.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -355,30 +333,28 @@
 			files = (
 				3E126329A9EC23E269FABF79 /* PixelProcesses.swift in Sources */,
 				3E1266AE4B620F06BCC45074 /* PixelColorConversion.swift in Sources */,
-				832788A51B5FBC2F00F0BAA0 /* CGImageConvertible.swift in Sources */,
 				3E126F3D768D0522E7DB1864 /* MutableImage.swift in Sources */,
-				8362246C1B6DB79300EBE84E /* GenericImage+UIImageConvertible.swift in Sources */,
-				832788A71B5FBCAE00F0BAA0 /* CIImageConvertible.swift in Sources */,
-				3E1260F69FE27BE58F506936 /* ImmutableImage.swift in Sources */,
+				3E1260F69FE27BE58F506936 /* Image.swift in Sources */,
 				3E126253AF513DC91A68838C /* GenericImage.swift in Sources */,
-				3E12679DE46C3B7E37E89B70 /* Pixels.swift in Sources */,
-				832788A31B5FBBBA00F0BAA0 /* CVPixelBufferConvertible.swift in Sources */,
-				3E126D95DE57B3464C00899B /* GenericImageConvertible.swift in Sources */,
-				3E1264DC7FB1EE4F1A0874A8 /* UIImageConvertible.swift in Sources */,
+				3E12679DE46C3B7E37E89B70 /* RGBPixel.swift in Sources */,
+				832788A31B5FBBBA00F0BAA0 /* ConvertibleImage.swift in Sources */,
 				83E5255B1B6283430057A7EB /* ImageRegion.swift in Sources */,
-				3E12627D3D9A0AA4944AC976 /* CVPixelBuffer+GenericImageConvertible.swift in Sources */,
-				3E12635DAD6FF11D0D67AFD1 /* GenericImage+CVPixelBufferConvertible.swift in Sources */,
-				8362246A1B6DB6FA00EBE84E /* UIImage+GenericImageConvertible.swift in Sources */,
-				3E12681196366981AC1B6818 /* CGImage+GenericImageConvertible.swift in Sources */,
-				3E12677E39AE1DE415F182BC /* GenericImage+CGImageConvertible.swift in Sources */,
+				83D4368A1DA79EC300A156CA /* HSVPixel.swift in Sources */,
+				836815681D7D29A7005CD70B /* CVPixelBuffer+ConvertibleImage.swift in Sources */,
+				83D4368E1DA7A5D700A156CA /* HSVPixel+ConvertiblePixel.swift in Sources */,
+				3E12635DAD6FF11D0D67AFD1 /* GenericImage+ConvertibleImage.swift in Sources */,
+				83F885311DA5102E000903CB /* BitmapInfoBuilder.swift in Sources */,
+				8362246A1B6DB6FA00EBE84E /* UIImage+ConvertibleImage.swift in Sources */,
+				83D436901DA7A64B00A156CA /* RGBPixel+ConvertiblePixel.swift in Sources */,
+				83D436881DA79CB600A156CA /* Pixel.swift in Sources */,
+				3E12681196366981AC1B6818 /* CGImage+ConvertibleImage.swift in Sources */,
 				836CDE201B6792A40079EEDD /* RegionRasterSource.swift in Sources */,
-				3E126C31891A24F0A505E394 /* CGImage+ImmutableImage.swift in Sources */,
+				83F885331DA51EE0000903CB /* CIImage+ConvertibleImage.swift in Sources */,
+				3E126C31891A24F0A505E394 /* CGImage+Image.swift in Sources */,
 				3E12607F0E56B44354A6A053 /* CVPixelBuffer+MutableImage.swift in Sources */,
-				3E1266FC407F63623844EDD8 /* CIImage+ImmutableImage.swift in Sources */,
-				3E126EE4798F55C890CC3FCD /* UIImage+ImmutableImage.swift in Sources */,
-				83530BC81B9ED68600620E5D /* Convert.swift in Sources */,
-				3E1265E367D9EAF8357645F4 /* CGImage+CVPixelBufferConvertible.swift in Sources */,
-				3E126323898B4CFDF665A20C /* CVPixelBuffer+CGImageConvertible.swift in Sources */,
+				3E1266FC407F63623844EDD8 /* CIImage+Image.swift in Sources */,
+				83D4368C1DA79F0500A156CA /* ConvertiblePixel.swift in Sources */,
+				3E126EE4798F55C890CC3FCD /* UIImage+Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +477,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftImage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chrisHatton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +497,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftImage/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chrisHatton.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
