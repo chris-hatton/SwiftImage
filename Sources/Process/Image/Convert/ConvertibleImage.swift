@@ -19,7 +19,7 @@ public protocol ConvertibleImage : Image
     func convert<T:Image>() throws -> T
 }
 
-extension ConvertibleImage
+public extension ConvertibleImage
 {
     public func convert<T:Image>() throws -> T
     {

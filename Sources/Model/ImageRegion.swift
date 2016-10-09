@@ -16,7 +16,7 @@ public struct ImageRegion
         width : Int,
         height: Int
     
-    init( x: Int = 0, y: Int = 0, width: Int, height: Int )
+    public init( x: Int = 0, y: Int = 0, width: Int, height: Int )
     {
         self.x      = x
         self.y      = y
@@ -24,7 +24,7 @@ public struct ImageRegion
         self.height = height
     }
     
-    init<ImageType:Image>( image: ImageType )
+    public init<ImageType:Image>( image: ImageType )
     {
         self.x      = 0
         self.y      = 0
@@ -32,7 +32,7 @@ public struct ImageRegion
         self.height = image.height
     }
     
-    static func singlePixelRegion( x: Int, y: Int ) -> ImageRegion
+    public static func singlePixelRegion( x: Int, y: Int ) -> ImageRegion
     {
         return ImageRegion( x: x, y: y, width: 1, height: 1 )
     }

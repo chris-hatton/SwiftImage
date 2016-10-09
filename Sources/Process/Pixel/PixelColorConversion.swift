@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension RGBPixel
+public extension RGBPixel
 {
     init( pixel: HSVPixel )
     {
@@ -16,7 +16,7 @@ extension RGBPixel
     }
 }
 
-func HSVtoRGB(_ hsv: HSVPixel) -> RGBPixel
+public func HSVtoRGB(_ hsv: HSVPixel) -> RGBPixel
 {
     var
         r : Double,

@@ -10,12 +10,12 @@ import Foundation
 
 public struct HSVPixel : Pixel
 {
-    var
-    hue        : Double,
-    saturation : Double,
-    value      : Double
-    
-    init(_ hue: Double, _ saturation: Double, _ value: Double)
+    public var
+        hue        : Double,
+        saturation : Double,
+        value      : Double
+        
+    public init(_ hue: Double, _ saturation: Double, _ value: Double)
     {
         self.hue        = hue
         self.saturation = saturation

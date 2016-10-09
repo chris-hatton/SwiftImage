@@ -8,7 +8,7 @@
 
 import Foundation
 
-func regionRasterSource<PixelType:Pixel>(
+public func regionRasterSource<PixelType:Pixel>(
         _ region:    ImageRegion,
         nextPixel: @escaping ()->PixelType,
         nextLine:  @escaping ()->Void,

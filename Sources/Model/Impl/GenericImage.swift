@@ -14,7 +14,7 @@ public final class GenericImage<TP : Pixel> : MutableImage
     public typealias ImageType   = GenericImage
     public typealias PixelSource = ()->TP?
     
-    var pixels : ContiguousArray<PixelType>
+    public var pixels : ContiguousArray<PixelType>
     
     public var
         width  : Int,
