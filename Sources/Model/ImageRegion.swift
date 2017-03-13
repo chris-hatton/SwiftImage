@@ -32,6 +32,8 @@ public struct ImageRegion
         self.height = image.height
     }
     
+    public var pixelCount : Int { return width * height }
+    
     public static func singlePixelRegion( x: Int, y: Int ) -> ImageRegion
     {
         return ImageRegion( x: x, y: y, width: 1, height: 1 )

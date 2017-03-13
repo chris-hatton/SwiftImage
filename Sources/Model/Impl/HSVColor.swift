@@ -1,5 +1,5 @@
 //
-//  HSVPixel.swift
+//  HSVColor.swift
 //  SwiftImage
 //
 //  Created by Christopher Hatton on 07/10/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct HSVPixel : Pixel
+public struct HSVColor: Color
 {
     public var
         hue        : Double,

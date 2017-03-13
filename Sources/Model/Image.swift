@@ -7,10 +7,10 @@ import Foundation
 
 public protocol Image
 {
-    associatedtype PixelType : Pixel
-    associatedtype PixelSource = (() -> PixelType?)
+    associatedtype PixelColor: Color
+    associatedtype PixelColorSource = (() -> PixelColor?)
     
-    func read( region: ImageRegion ) -> PixelSource
+    func read( region: ImageRegion ) -> PixelColorSource
 
     var width  : Int { get }
     var height : Int { get }
@@ -18,13 +18,19 @@ public protocol Image
 
 public extension Image
 {
-    func getPixel( _ x: Int, y: Int ) -> PixelType?
+    subscript(x: Int, y: Int) -> PixelColor
+    {
+        get{ fatalError() }
+        set{ fatalError() }
+    }
+    
+    func getPixel( _ x: Int, y: Int ) -> PixelColor?
     {
         let singlePixelRegion = ImageRegion.singlePixelRegion(x: x, y: y)
         
-        let singlePixelSource : PixelSource = read( region: singlePixelRegion )
+        let singlePixelColorSource : PixelColorSource = read( region: singlePixelRegion )
         
-        let pixel : PixelType? = (singlePixelSource as! ()->PixelType?)()
+        let pixel : PixelColor? = (singlePixelColorSource as! ()-> PixelColor?)()
         
         return pixel
     }

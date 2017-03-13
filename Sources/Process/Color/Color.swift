@@ -1,5 +1,5 @@
 //
-//  ConvertiblePixel.swift
+//  ConvertibleColor.swift
 //  SwiftImage
 //
 //  Created by Christopher Hatton on 07/10/2016.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-public protocol Pixel {}
+public protocol Color {}

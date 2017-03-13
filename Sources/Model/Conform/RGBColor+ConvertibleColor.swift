@@ -1,5 +1,5 @@
 //
-//  HSVPixel+ConvertiblePixel.swift
+//  RGBColor.swift
 //  SwiftImage
 //
 //  Created by Christopher Hatton on 07/10/2016.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension HSVPixel : ConvertiblePixel
+extension RGBColor : ConvertibleColor
 {
-    func convert() throws -> RGBPixel
+    func convert() throws -> HSVColor
     {
-        return HSVtoRGB(self)
+        return RGBtoHSV(self)
     }
 }

@@ -8,29 +8,29 @@
 
 import Foundation
 
-public final class GenericImage<TP : Pixel> : MutableImage
+public final class GenericImage<TP :Color> : MutableImage
 {
-    public typealias PixelType   = TP
-    public typealias ImageType   = GenericImage
-    public typealias PixelSource = ()->TP?
+    public typealias PixelColor       = TP
+    public typealias ImageType        = GenericImage
+    public typealias PixelColorSource = ()->TP?
     
-    public var pixels : ContiguousArray<PixelType>
+    public var pixels : ContiguousArray<PixelColor>
     
     public var
         width  : Int,
         height : Int
     
-    // TODO: Create another constructor which uses a PixelSource for the initial fill
+    // TODO: Create another constructor which uses a PixelColorSource for the initial fill
     
-    public init(width: Int, height: Int, fill: PixelType)
+    public init(width: Int, height: Int, fill: PixelColor)
     {
-        pixels = ContiguousArray<PixelType>(repeating: fill, count: Int( width * height ))
+        pixels = ContiguousArray<PixelColor>(repeating: fill, count: Int( width * height ))
         
         self.width  = width
         self.height = height
     }
     
-    public func read( region: ImageRegion ) -> PixelSource
+    public func read( region: ImageRegion ) -> PixelColorSource
     {
         var i : Int = Int( ( region.y * self.width ) + region.x )
         
@@ -45,13 +45,13 @@ public final class GenericImage<TP : Pixel> : MutableImage
         return regionRasterSource( region, nextPixel: nextPixel, nextLine: nextLine )
     }
 
-    public func write( region: ImageRegion, pixelSource: @escaping PixelSource )
+    public func write( region: ImageRegion, pixelColorSource: @escaping PixelColorSource )
     {
-        for y : Int in region.y ..< region.height
+        for y : Int in region.y ..< (region.y + region.height)
         {
-            for x : Int in region.x ..< region.width
+            for x : Int in region.x ..< (region.x + region.width)
             {
-                guard let pixel : PixelType = pixelSource() else { fatalError() }
+                guard let pixel : PixelColor = pixelColorSource() else { fatalError() }
                 
                 self.pixels[ Int( ( y * width ) + x ) ] = pixel
             }

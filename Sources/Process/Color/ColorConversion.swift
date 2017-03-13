@@ -1,5 +1,5 @@
 //
-//  PixelColorConversion.swift
+//  ColorConversion.swift
 //  ResistAR
 //
 //  Created by Christopher Hatton on 06/09/2014.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-public extension RGBPixel
+public extension RGBColor
 {
-    init( pixel: HSVPixel )
+    init( pixel: HSVColor)
     {
         self = HSVtoRGB( pixel )
     }
 }
 
-public func HSVtoRGB(_ hsv: HSVPixel) -> RGBPixel
+public func HSVtoRGB(_ hsv: HSVColor) -> RGBColor
 {
     var
         r : Double,
@@ -69,18 +69,18 @@ public func HSVtoRGB(_ hsv: HSVPixel) -> RGBPixel
         break
     }
     
-    return RGBPixel(r,g,b)
+    return RGBColor(r,g,b)
 }
 
-extension HSVPixel
+extension HSVColor
 {
-    init( pixel: RGBPixel )
+    init( pixel: RGBColor)
     {
         self = RGBtoHSV( pixel )
     }
 }
 
-func RGBtoHSV(_ rgb: RGBPixel) -> HSVPixel
+func RGBtoHSV(_ rgb: RGBColor) -> HSVColor
 {
     let
         r     : Double = rgb.red(),
@@ -135,5 +135,5 @@ func RGBtoHSV(_ rgb: RGBPixel) -> HSVPixel
         h += 360.0
     }
     
-    return HSVPixel(h,s,v)
+    return HSVColor(h,s,v)
 }

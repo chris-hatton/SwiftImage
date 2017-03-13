@@ -8,11 +8,11 @@
 
 import Foundation
 
-public func regionRasterSource<PixelType:Pixel>(
+public func regionRasterSource<PixelColor:Color>(
         _ region:    ImageRegion,
-        nextPixel: @escaping ()->PixelType,
+        nextPixel: @escaping ()->PixelColor,
         nextLine:  @escaping ()->Void,
-        end:       (()->Void)? = nil) -> ()->PixelType?
+        end:       (()->Void)? = nil) -> ()->PixelColor?
 {
     var
         x : Int = region.x,
@@ -20,9 +20,9 @@ public func regionRasterSource<PixelType:Pixel>(
     
     var ended = false
     
-    let regionRasterSource : ()->PixelType? =
+    let regionRasterSource : ()->PixelColor? =
     {
-        let pixel : PixelType?
+        let pixel : PixelColor?
         
         if y == region.height
         {

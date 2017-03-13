@@ -1,5 +1,5 @@
 //
-//  RGBPixel.swift
+//  RGBColor.swift
 //  SwiftImage
 //
 //  Created by Christopher Hatton on 07/09/2014.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct RGBPixel : Pixel
+public struct RGBColor: Color
 {
     static let doubleScale : Double = 255
     
@@ -18,15 +18,15 @@ public struct RGBPixel : Pixel
         _blue  : UInt8,
         _alpha : UInt8
     
-    public mutating func set( red   : Int ) { _red   = UInt8(red  ) }
-    public mutating func set( green : Int ) { _green = UInt8(green) }
-    public mutating func set( blue  : Int ) { _blue  = UInt8(blue ) }
+    public mutating func set( red   : Int ) { _red   = UInt8(red   ) }
+    public mutating func set( green : Int ) { _green = UInt8(green ) }
+    public mutating func set( blue  : Int ) { _blue  = UInt8(blue  ) }
     public mutating func set( alpha : Int ) { _alpha = UInt8(alpha ) }
     
-    public mutating func set( red   : Double ) { _red   = UInt8(red   * RGBPixel.doubleScale) }
-    public mutating func set( green : Double ) { _green = UInt8(green * RGBPixel.doubleScale) }
-    public mutating func set( blue  : Double ) { _blue  = UInt8(blue  * RGBPixel.doubleScale) }
-    public mutating func set( alpha : Double ) { _alpha = UInt8(alpha * RGBPixel.doubleScale) }
+    public mutating func set( red   : Double ) { _red   = UInt8(red   * RGBColor.doubleScale) }
+    public mutating func set( green : Double ) { _green = UInt8(green * RGBColor.doubleScale) }
+    public mutating func set( blue  : Double ) { _blue  = UInt8(blue  * RGBColor.doubleScale) }
+    public mutating func set( alpha : Double ) { _alpha = UInt8(alpha * RGBColor.doubleScale) }
     
     public func red()   -> Int    { return Int(_red  ) }
     public func green() -> Int    { return Int(_green) }
@@ -50,10 +50,10 @@ public struct RGBPixel : Pixel
         precondition(blue  >= 0.0 && blue  <= 1.0)
         precondition(alpha >= 0.0 && alpha <= 1.0)
         
-        _red   = UInt8(red   * RGBPixel.doubleScale)
-        _green = UInt8(green * RGBPixel.doubleScale)
-        _blue  = UInt8(blue  * RGBPixel.doubleScale)
-        _alpha = UInt8(alpha * RGBPixel.doubleScale)
+        _red   = UInt8(red   * RGBColor.doubleScale)
+        _green = UInt8(green * RGBColor.doubleScale)
+        _blue  = UInt8(blue  * RGBColor.doubleScale)
+        _alpha = UInt8(alpha * RGBColor.doubleScale)
     }
     
     public init(_ color: UIColor)
