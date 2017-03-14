@@ -12,11 +12,5 @@ in (Cocoa Touch)[https://en.wikipedia.org/wiki/Cocoa_Touch] and it's associated 
 **SwiftImage** also offers it's own more Swift-like representation of an Image, **GenericImage**.
 
 **SwiftImage** is being developed in conjunction with a demo App, **SwiftImageDemo**.
-If you have an interest, I warmly welcome collaboration on both of these sub-projects.
+If you have an interest, I welcome collaboration on both of these sub-projects.
 
-Check-out both Git repositories, side-by-side in your filesystem:
-
-- https://github.com/chris-hatton/SwiftImage.git
-- https://github.com/chris-hatton/SwiftImageDemo.git
-
-Current development environment: Xcode Version 7.0 beta 4 (7A165t)
