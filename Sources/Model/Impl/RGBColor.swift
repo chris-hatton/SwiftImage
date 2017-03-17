@@ -38,10 +38,10 @@ public struct RGBColor: Color
     public func blue()  -> Double { return Double(_blue ) / 255 }
     public func alpha() -> Double { return Double(_alpha) / 255 }
     
-    public func red()   -> CGFloat { return CGFloat(_red  ) / 255 }
-    public func green() -> CGFloat { return CGFloat(_green) / 255 }
-    public func blue()  -> CGFloat { return CGFloat(_blue ) / 255 }
-    public func alpha() -> CGFloat { return CGFloat(_alpha) / 255 }
+    public func red()   -> Float { return Float(_red  ) / 255 }
+    public func green() -> Float { return Float(_green) / 255 }
+    public func blue()  -> Float { return Float(_blue ) / 255 }
+    public func alpha() -> Float { return Float(_alpha) / 255 }
 
     public init(_ red: Double, _ green: Double, _ blue: Double, _ alpha: Double = 1.0)
     {
@@ -54,17 +54,5 @@ public struct RGBColor: Color
         _green = UInt8(green * RGBColor.doubleScale)
         _blue  = UInt8(blue  * RGBColor.doubleScale)
         _alpha = UInt8(alpha * RGBColor.doubleScale)
-    }
-    
-    public init(_ color: UIColor)
-    {
-        var red     : CGFloat = 0.0
-        var green   : CGFloat = 0.0
-        var blue    : CGFloat = 0.0
-        var alpha   : CGFloat = 0.0
-        
-        color.getRed( &red, green: &green, blue: &blue, alpha: &alpha)
-        
-        self.init( Double(red), Double(green), Double(blue), Double(alpha) )
     }
 }

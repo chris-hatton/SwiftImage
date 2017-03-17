@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-               BuildableName = "SwiftImage.iOS.framework"
-               BlueprintName = "SwiftImage.iOS"
+               BlueprintIdentifier = "833D1C3E1E7AB44B002B1BFE"
+               BuildableName = "SwiftImage.macos.framework"
+               BlueprintName = "SwiftImage.macos"
                ReferencedContainer = "container:SwiftImage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8302CEDB1E7A9A3C00AA9E94"
-               BuildableName = "SwiftImageTests.xctest"
-               BlueprintName = "SwiftImageTests"
-               ReferencedContainer = "container:SwiftImage.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-            BuildableName = "SwiftImage.iOS.framework"
-            BlueprintName = "SwiftImage.iOS"
-            ReferencedContainer = "container:SwiftImage.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-            BuildableName = "SwiftImage.iOS.framework"
-            BlueprintName = "SwiftImage.iOS"
+            BlueprintIdentifier = "833D1C3E1E7AB44B002B1BFE"
+            BuildableName = "SwiftImage.macos.framework"
+            BlueprintName = "SwiftImage.macos"
             ReferencedContainer = "container:SwiftImage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-            BuildableName = "SwiftImage.iOS.framework"
-            BlueprintName = "SwiftImage.iOS"
+            BlueprintIdentifier = "833D1C3E1E7AB44B002B1BFE"
+            BuildableName = "SwiftImage.macos.framework"
+            BlueprintName = "SwiftImage.macos"
             ReferencedContainer = "container:SwiftImage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

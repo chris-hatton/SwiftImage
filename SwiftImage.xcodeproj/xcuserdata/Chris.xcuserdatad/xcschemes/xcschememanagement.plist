@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SwiftImage.iOS copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>SwiftImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -15,12 +20,17 @@
 		<key>8302CED21E7A9A3C00AA9E94</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 		<key>8302CEDB1E7A9A3C00AA9E94</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
+		</dict>
+		<key>833D1C3E1E7AB44B002B1BFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
