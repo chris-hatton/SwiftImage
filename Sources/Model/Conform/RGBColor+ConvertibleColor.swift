@@ -1,5 +1,5 @@
 //
-//  RGBColor.swift
+//  RGBAColor.swift
 //  SwiftImage
 //
 //  Created by Christopher Hatton on 07/10/2016.

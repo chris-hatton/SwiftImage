@@ -7,7 +7,7 @@ import Foundation
 
 public protocol Image
 {
-    associatedtype PixelColor: Color
+    associatedtype PixelColor : Color
     associatedtype PixelColorSource = (() -> PixelColor?)
     
     func read( region: ImageRegion ) -> PixelColorSource
@@ -24,6 +24,10 @@ public extension Image
         set{ fatalError() }
     }
     
+    /*
+     *  This default implementation of getPixel will be inefficient for most cases.
+     *  Prefer to implement a more optimised version for concrete Image types.
+     */
     func getPixel( _ x: Int, y: Int ) -> PixelColor?
     {
         let singlePixelRegion = ImageRegion.singlePixelRegion(x: x, y: y)

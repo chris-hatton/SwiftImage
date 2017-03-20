@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-               BuildableName = "SwiftImage.iOS.framework"
+               BuildableName = "SwiftImage.framework"
                BlueprintName = "SwiftImage.iOS"
                ReferencedContainer = "container:SwiftImage.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-            BuildableName = "SwiftImage.iOS.framework"
+            BuildableName = "SwiftImage.framework"
             BlueprintName = "SwiftImage.iOS"
             ReferencedContainer = "container:SwiftImage.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-            BuildableName = "SwiftImage.iOS.framework"
+            BuildableName = "SwiftImage.framework"
             BlueprintName = "SwiftImage.iOS"
             ReferencedContainer = "container:SwiftImage.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8302CED21E7A9A3C00AA9E94"
-            BuildableName = "SwiftImage.iOS.framework"
+            BuildableName = "SwiftImage.framework"
             BlueprintName = "SwiftImage.iOS"
             ReferencedContainer = "container:SwiftImage.xcodeproj">
          </BuildableReference>

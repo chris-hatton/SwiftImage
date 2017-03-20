@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "833D1C3E1E7AB44B002B1BFE"
-               BuildableName = "SwiftImage.macos.framework"
+               BuildableName = "SwiftImage.framework"
                BlueprintName = "SwiftImage.macos"
                ReferencedContainer = "container:SwiftImage.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "833D1C3E1E7AB44B002B1BFE"
-            BuildableName = "SwiftImage.macos.framework"
+            BuildableName = "SwiftImage.framework"
             BlueprintName = "SwiftImage.macos"
             ReferencedContainer = "container:SwiftImage.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "833D1C3E1E7AB44B002B1BFE"
-            BuildableName = "SwiftImage.macos.framework"
+            BuildableName = "SwiftImage.framework"
             BlueprintName = "SwiftImage.macos"
             ReferencedContainer = "container:SwiftImage.xcodeproj">
          </BuildableReference>
